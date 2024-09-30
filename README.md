@@ -1,5 +1,3 @@
-# Computer-Forensics-StudyGuide
-
 # Computer Forensics Study Guide
 
 Welcome to the **Computer Forensics Study Guide**, an open-source repository dedicated to providing a comprehensive learning resource for individuals pursuing a career in computer forensics. This repository is designed to serve both beginners and seasoned professionals looking to sharpen their skills in digital forensics. Whether you are studying for certification exams, expanding your knowledge, or actively working on cases, this guide aims to be a valuable tool in your journey through the field of forensic investigation.
