@@ -1,8 +1,8 @@
-### Overview of Computer Forensics Degrees and Certifications
+# Overview of Computer Forensics Degrees and Certifications
 
 Computer forensics, also known as digital forensics, focuses on the recovery, analysis, and investigation of data from digital devices in legal and criminal contexts. This field spans several areas, including law enforcement, corporate security, and cybersecurity. Below is a detailed summary of the degrees and certifications available for individuals looking to pursue a career in computer forensics.
 
-### **Degrees in Computer Forensics**
+## **Degrees in Computer Forensics**
 
 #### 1. **Associate Degrees (2-year programs)**
    - **Associate of Science in Digital Forensics**  
@@ -45,7 +45,7 @@ Computer forensics, also known as digital forensics, focuses on the recovery, an
 
 ---
 
-### **Certifications in Computer Forensics**
+## **Certifications in Computer Forensics**
 
 Certifications are highly sought after in the field of digital forensics and are essential for career advancement. They demonstrate specialized knowledge, practical skills, and adherence to industry standards.
 
@@ -108,6 +108,6 @@ These roles are common in law enforcement, federal agencies, private sector comp
 
 ---
 
-### **Conclusion**
+# **Conclusion**
 
 A career in computer forensics offers multiple pathways through formal education and professional certifications. For individuals looking to enter the field, pursuing a relevant degree paired with certifications like GCFE, EnCE, or CCE will help build credibility and technical skills.
