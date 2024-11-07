@@ -1,4 +1,12 @@
+# GFCA Exam
+
 The **GIAC Certified Forensic Analyst (GCFA)** certification, administered by the **Global Information Assurance Certification (GIAC)**, is a respected credential in computer forensics, focusing on advanced incident response and digital forensic analysis. GIAC is a well-regarded certification body known for its rigorous exams tailored to cybersecurity professionals. The GCFA is recognized in the industry as a specialized certification, positioning holders as experts capable of investigating and analyzing cyber incidents, identifying attack vectors, understanding malware behaviors, and reconstructing complex digital events.
+
+### **Exam Format and Details**
+- **Exam Length:** 3 Hours
+- **Number of questions** 82 Questions
+- **Passing Score** 71%
+- **Delivery Type** Proctored exam, available online or at Pearson VUE test centers
 
 ### **Exam Coverage**
 The GCFA certification covers a range of skills necessary for digital forensics and incident response, including:
