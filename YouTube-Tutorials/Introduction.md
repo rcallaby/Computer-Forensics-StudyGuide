@@ -12,6 +12,15 @@ IF you have or know of a good youtube channel or tutorial please feel free to ad
 ### CTF Walkthroughs
 
 - [Recovering Files with Autopsy](https://www.youtube.com/watch?v=6NcIbiKhIis&t=191s)
+- [Deadface Capture the Flag](https://www.youtube.com/watch?v=y8fmxealw8Y)
 
 
 ### Tutorials
+
+- [Autopsy Forensic Acquistion Tool](https://www.youtube.com/watch?v=S6V66G2tVr8)
+- [Basic forensic Analysis with Autopsy](https://www.youtube.com/watch?v=-nkuM9Rzbns)
+- [Searching for a rogue process in Rekall](https://www.youtube.com/watch?v=rooPGxDjt60)
+- [Network Miner for Digital Forensics](https://www.youtube.com/watch?v=K8nQWs4Izc4)
+- [Basics of how to use Network Miner](https://www.youtube.com/watch?v=vo9tK3ABw8o)
+- [NetworkMiner Tutorial](https://www.youtube.com/watch?v=p28z6nnKN9o)
+- [How to View Credentials with NetworkMiner](https://www.youtube.com/watch?v=jhn9U23S1qk)
