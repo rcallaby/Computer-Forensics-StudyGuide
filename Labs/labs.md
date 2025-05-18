@@ -5,3 +5,6 @@
 - NIST Dataset
 - Root-me.org
 - TryHackMe DFIR Labs
+- Cyberforensic.net
+- aboutdfir.com
+- linuxleo.com

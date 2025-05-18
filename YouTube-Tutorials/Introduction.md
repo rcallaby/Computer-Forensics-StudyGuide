@@ -24,3 +24,5 @@ IF you have or know of a good youtube channel or tutorial please feel free to ad
 - [Basics of how to use Network Miner](https://www.youtube.com/watch?v=vo9tK3ABw8o)
 - [NetworkMiner Tutorial](https://www.youtube.com/watch?v=p28z6nnKN9o)
 - [How to View Credentials with NetworkMiner](https://www.youtube.com/watch?v=jhn9U23S1qk)
+- [VMWare Memory Forensics](https://www.youtube.com/watch?v=P0yw93GJsYU)
+- [Introduction to Memory Forensics](https://www.youtube.com/watch?v=1PAGcPJFwbE&list=PLlv3b9B16Zaf-uDlgouB0DMiPNYU_sJFN)
