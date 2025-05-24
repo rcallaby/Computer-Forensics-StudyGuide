@@ -26,3 +26,5 @@ IF you have or know of a good youtube channel or tutorial please feel free to ad
 - [How to View Credentials with NetworkMiner](https://www.youtube.com/watch?v=jhn9U23S1qk)
 - [VMWare Memory Forensics](https://www.youtube.com/watch?v=P0yw93GJsYU)
 - [Introduction to Memory Forensics](https://www.youtube.com/watch?v=1PAGcPJFwbE&list=PLlv3b9B16Zaf-uDlgouB0DMiPNYU_sJFN)
+- [FTK Imager](https://www.youtube.com/watch?v=UKe0Asjf814&list=PLtwXI6LGx9QTluOtiKvxN3M1vKhRAPJM0&index=1)
+- [Volatility Tutorial](https://www.youtube.com/watch?v=Nh9H3qQ8wBY)
