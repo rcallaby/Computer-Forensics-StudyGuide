@@ -12,3 +12,7 @@ Thank you for visiting the **Computer Forensics Study Guide** repository. We hop
 
 
 Table of Contents
+
+- Certifications and Degrees
+- Disk Imaging and Analysis
+- Jobb Interview Prep
