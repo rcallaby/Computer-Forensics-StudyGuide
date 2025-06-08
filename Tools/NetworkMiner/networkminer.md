@@ -18,7 +18,7 @@ By mastering NetworkMiner, individuals can enhance their skills in network traff
 
 **NetworkMiner** is an open-source **Network Forensic Analysis Tool (NFAT)** developed by **Erik Hjelmvik** of Netresec, designed to capture, parse, and analyze packet data in a passive manner. Unlike intrusion detection systems (IDS) or packet crafting tools, NetworkMiner does not generate any network traffic; instead, it is primarily used for post-capture forensic analysis or live packet sniffing.
 
-> ✅ **Reference**: [Official NetworkMiner Website – Netresec](https://www.netresec.com/?page=NetworkMiner)
+> **Reference**: [Official NetworkMiner Website – Netresec](https://www.netresec.com/?page=NetworkMiner)
 
 NetworkMiner is frequently used in **incident response**, **digital forensics**, and **malware analysis**, especially for reconstructing files and credentials from PCAP files or live traffic.
 
@@ -63,7 +63,7 @@ NetworkMiner is frequently used in **incident response**, **digital forensics**,
 
    * Allows filtering and keyword-based search across sessions, payloads, and metadata.
 
-> ✅ **Reference**: [NetworkMiner Features – Netresec](https://www.netresec.com/?page=NetworkMiner)
+> **Reference**: [NetworkMiner Features – Netresec](https://www.netresec.com/?page=NetworkMiner)
 
 ---
 
@@ -92,7 +92,7 @@ NetworkMiner is essential in **network forensics** and **post-breach analysis** 
 
    * Used in cybersecurity labs and certifications like **CHFI**, **GCIA**, and **ENISA trainings** for demonstrating live traffic analysis.
 
-> ✅ **Reference**:
+> **Reference**:
 
 * Carrier, B. (2006). *File System Forensic Analysis.*
 * ENISA Threat Landscape Reports
@@ -108,7 +108,7 @@ NetworkMiner is essential in **network forensics** and **post-breach analysis** 
 * **Linux**: Supported with **Mono** (Open-source implementation of .NET)
 * **macOS**: Possible via Mono, but not officially supported or recommended for production use
 
-> ✅ **Reference**: [NetworkMiner Download Page – Netresec](https://www.netresec.com/?page=NetworkMiner)
+> **Reference**: [NetworkMiner Download Page – Netresec](https://www.netresec.com/?page=NetworkMiner)
 
 ---
 
@@ -168,14 +168,14 @@ NetworkMiner is essential in **network forensics** and **post-breach analysis** 
 
 ---
 
-## ✅ **Final Notes and Verification**
+## **Final Notes and Verification**
 
 * NetworkMiner is a well-maintained, industry-acknowledged tool.
 * It is used in both **open-source** and **commercial** incident response frameworks.
 * Trusted by professionals at CERTs, SOCs, law enforcement, and military cyber units.
 * Latest stable version, as of this writing, is **NetworkMiner 2.8.1** (2023 release).
 
-> ✅ **Further References**:
+> **Further References**:
 
 * [Netresec Blog and Case Studies](https://www.netresec.com/?page=Blog)
 * [Digital Forensics Magazine](https://www.digitalforensicsmagazine.com/)
@@ -197,7 +197,7 @@ A **network packet** is the fundamental unit of data that is transmitted over a 
 
 Each packet is routed independently and can traverse different paths to reach its destination.
 
-> ✅ **Source**: [RFC 791 – Internet Protocol (IPv4)](https://tools.ietf.org/html/rfc791)
+> **Source**: [RFC 791 – Internet Protocol (IPv4)](https://tools.ietf.org/html/rfc791)
 
 ---
 
@@ -223,7 +223,7 @@ Protocols define the rules and data formats for communication. Key types include
   * **ICMP**: Used by ping/traceroute tools.
   * **IP**: Routing and addressing.
 
-> ✅ **Reference**: [RFC 1122 – Requirements for Internet Hosts](https://tools.ietf.org/html/rfc1122)
+> **Reference**: [RFC 1122 – Requirements for Internet Hosts](https://tools.ietf.org/html/rfc1122)
 
 ---
 
@@ -242,7 +242,7 @@ Each PCAP file stores:
 
 **PCAPNG** is an advanced version (PCAP Next Generation) supporting more metadata and multiple interfaces.
 
-> ✅ **Reference**: [PCAP File Format Specification – Wireshark Wiki](https://wiki.wireshark.org/Development/LibpcapFileFormat)
+> **Reference**: [PCAP File Format Specification – Wireshark Wiki](https://wiki.wireshark.org/Development/LibpcapFileFormat)
 
 ---
 
@@ -267,7 +267,7 @@ In cybersecurity and forensics, passive methods are ideal for:
 * **Incident response**.
 * **Historical investigation**.
 
-> ✅ **Source**: “Network Forensics: Tracking Hackers through Cyberspace” – Sherri Davidoff & Jonathan Ham (O’Reilly Media)
+> **Source**: “Network Forensics: Tracking Hackers through Cyberspace” – Sherri Davidoff & Jonathan Ham (O’Reilly Media)
 
 ---
 
@@ -298,7 +298,7 @@ NetworkMiner specializes in **passive traffic analysis** and enables investigato
 
    * NetworkMiner works seamlessly with PCAP files produced by other tools, making it a valuable part of a forensic toolkit alongside Wireshark and Suricata.
 
-> ✅ **Reference**:
+> **Reference**:
 
 * [Netresec – NetworkMiner Overview](https://www.netresec.com/?page=NetworkMiner)
 * [Wireshark User Guide](https://www.wireshark.org/docs/wsug_html_chunked/)
@@ -306,19 +306,156 @@ NetworkMiner specializes in **passive traffic analysis** and enables investigato
 
 ---
 
-## ✅ **Conclusion**
+## **Conclusion**
 
 Understanding network packets and the structure of PCAP files is critical for any digital forensic analyst or incident responder. NetworkMiner excels in the passive dissection of this data, offering powerful insights into user behavior, security events, and potential intrusions without ever interacting with or altering the target environment.
 
 
 ## 3. User Interface and Navigation  
-    - Overview of the NetworkMiner interface  
-    - Key components:  
-      - Hosts tab  
-      - Files tab  
-      - Images tab  
-      - Messages tab  
-    - Customizing the interface for specific tasks  
+
+## **Overview of the NetworkMiner Interface**
+
+NetworkMiner’s interface is designed for **clarity, artifact reconstruction, and host-based forensic investigation**. It provides a **tabbed, host-centric GUI** that groups analyzed network traffic by endpoints (hosts) and artifacts (e.g., files, credentials, messages), which helps investigators navigate large packet captures with ease.
+
+The GUI requires **no command-line interaction** and is especially helpful for digital forensics professionals, incident responders, and malware analysts looking to **extract actionable intelligence** from `.pcap` or `.pcapng` files or live network traffic.
+
+> **Reference**: [Official NetworkMiner Documentation](https://www.netresec.com/?page=NetworkMiner)
+
+---
+
+## **Key Components of the Interface**
+
+### 🖥 **1. Hosts Tab**
+
+The **Hosts tab** is the **default view** and the backbone of the interface. It displays a table of all detected **unique hosts** based on captured traffic.
+
+**Features**:
+
+* **IP addresses**, **hostnames**, and **MAC addresses**
+* **Operating system fingerprints** (based on passive OS detection)
+* **Open ports/services** (e.g., 80, 443, 445)
+* **File transfer count**, **credentials found**, and **messages associated**
+* Indicators for **SMB**, **HTTP**, **FTP**, **DNS**, and other protocols
+
+**Usage**:
+
+* Helps analysts **pivot by host**, viewing all activities and artifacts associated with a specific IP.
+* Used in **attribution**, **network mapping**, and **timeline reconstruction**.
+
+> Tip: Hosts can be sorted by column headers or filtered by protocol/artifact count.
+
+---
+
+### **2. Files Tab**
+
+The **Files tab** lists all **files transferred or reconstructed** from the network traffic.
+
+**Features**:
+
+* Extracted from **HTTP**, **FTP**, **TFTP**, **SMB**, and other file transfer protocols.
+* Shows file **name**, **MIME type**, **source/destination host**, and **file size**.
+* Files are saved to a local folder for further inspection (e.g., with AV or sandbox tools).
+
+**Usage**:
+
+* Quickly identify **malicious files**, **stolen data**, or **malware payloads**.
+* Analyze file hashes for threat intelligence correlations (e.g., via VirusTotal or internal sandbox).
+
+> Tip: Right-click on any file to open its folder or copy path for automated analysis pipelines.
+
+---
+
+### 🖼 **3. Images Tab**
+
+The **Images tab** displays **pictures and graphics** transmitted in the network traffic.
+
+**Features**:
+
+* Extracted from **HTTP**, **SMTP**, or **multimedia protocols**.
+* Includes formats like `.jpg`, `.png`, `.gif`, etc.
+* Includes **source/destination host info** and **preview thumbnails**.
+
+**Usage**:
+
+* Useful in cases of **data exfiltration**, **illicit content detection**, or **phishing/malvertising campaigns**.
+* Visual confirmation of browsing activity and user behavior.
+
+> Tip: Supports bulk image viewing or individual inspection.
+
+---
+
+### **4. Messages Tab**
+
+The **Messages tab** shows **plaintext credentials**, **chat messages**, **emails**, and other **extracted text-based content**.
+
+**Sources include**:
+
+* **HTTP forms**
+* **FTP login exchanges**
+* **POP3, SMTP, IMAP sessions**
+* **IRC, Telnet, and chat protocols**
+
+**Columns displayed**:
+
+* Protocol
+* Username
+* Password
+* Message content (email subjects, IM logs, etc.)
+* Host associations
+
+**Usage**:
+
+* Credential harvesting and **account compromise investigation**.
+* Phishing and **social engineering incident response**.
+* Messaging behavior during **malware C2 activity**.
+
+> Tip: All messages and credentials can be exported for reporting and correlation.
+
+---
+
+## **Customizing the Interface for Specific Tasks**
+
+Although NetworkMiner is designed to work **out of the box**, its GUI supports some customization and usage optimization:
+
+### **1. Filter Views by Host or Protocol**
+
+* Use **column sorting** and **search boxes** to narrow down hosts based on criteria like:
+
+  * Number of extracted files
+  * Number of messages or credentials
+  * Specific port usage (e.g., only view SMB traffic)
+
+### **2. Toggling Tabs Based on Workflow**
+
+* Focus on tabs relevant to your **investigative goals**:
+
+  * **Malware analysis** → Files + Hosts tabs
+  * **Credential compromise** → Messages tab
+  * **Exfiltration or C2** → DNS + Hosts + Files tabs
+
+### **3. Exporting Artifacts**
+
+* Export **all extracted files**, **host summaries**, or **PCAP slices** to work with external tools like:
+
+  * VirusTotal
+  * Autopsy or FTK
+  * Python scripts for IOC extraction
+
+### **4. Adjusting File Storage Directory**
+
+* You can configure the output folder in settings to redirect extracted artifacts to a **forensic evidence volume** or **SIEM ingestion directory**.
+
+### **5. Using with PCAP Filters**
+
+* Pre-process large PCAPs using tools like `tcpdump`, `editcap`, or `mergecap` to **split or filter traffic** before importing into NetworkMiner for better performance.
+
+> Reference: [SANS DFIR NetworkMiner Tutorial](https://dfirblog.com/), [Netresec Blog](https://www.netresec.com/?page=Blog)
+
+---
+
+## **Conclusion**
+
+NetworkMiner's tabbed interface provides a **host-centric, artifact-first view** of network data, simplifying complex forensic investigations. Whether you're extracting files from a malware campaign or hunting for credential theft in a breach scenario, its clear layout, artifact grouping, and passive analysis model make it a **powerful companion to tools like Wireshark, Zeek, or Suricata**.
 
 ## 4. Host Analysis  
     - Identifying hosts in network traffic  
