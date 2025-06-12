@@ -153,14 +153,170 @@ It’s also worth noting that while EnCase has its limitations—namely cost and
 
 
 ## Getting Started
-- Installation and Setup
-    - System requirements
-    - Installation steps
-    - Licensing and activation
-- User Interface Overview
-    - Main components of the interface
-    - Navigation tips
-    - Customizing the workspace
+
+
+## Installation, Setup & User Interface Overview
+
+---
+
+### Installation and Setup
+
+Getting EnCase Forensic up and running is fairly straightforward—but like most forensic tools, it does have **strict system requirements** and **licensing procedures** to follow for a compliant, smooth experience.
+
+---
+
+#### System Requirements (Verified from OpenText Documentation)
+
+Here are the **official minimum and recommended system specs** from OpenText (as of EnCase Forensic v21.x):
+
+| Category     | Minimum                                       | Recommended                                |
+| ------------ | --------------------------------------------- | ------------------------------------------ |
+| **OS**       | Windows 10 (64-bit), Windows Server 2016+     | Windows 11 or Server 2019 (64-bit)         |
+| **CPU**      | Intel i5 / AMD Ryzen 5                        | Intel i7/i9 or Xeon (8+ cores)             |
+| **RAM**      | 16 GB                                         | 32 GB or more                              |
+| **Storage**  | 1 TB (SSD recommended)                        | 2+ TB SSD (especially for large case work) |
+| **Graphics** | Integrated GPU sufficient                     | Dedicated GPU optional (for add-ons)       |
+| **Network**  | Required for license verification and updates | Same                                       |
+
+🧠 **Note**: EnCase is a **resource-intensive tool**. More RAM and faster storage significantly improve indexing, evidence parsing, and keyword searching performance.
+
+---
+
+#### Installation Steps
+
+1. **Download the Installer**:
+
+   * Access via your **OpenText account** or licensed distributor portal.
+   * Download the appropriate version for your license (e.g., v21.4).
+
+2. **Run the Installer as Administrator**:
+
+   * Right-click the `.exe` file → `Run as administrator`.
+   * Follow the setup wizard prompts.
+
+3. **Choose Installation Type**:
+
+   * Typically choose **“Complete”** unless you have specific constraints.
+   * Accept the license agreement, choose the installation path (default: `C:\Program Files\OpenText\EnCase Forensic`).
+
+4. **Optional: Install Dependencies**:
+
+   * Installer may prompt for Visual C++ Redistributables, .NET Frameworks, or Sentinel HASP drivers.
+
+5. **Finish and Reboot**:
+
+   * After installation, reboot the system to finalize environment setup.
+
+---
+
+#### Licensing and Activation
+
+EnCase Forensic uses **a combination of hardware dongles (USB license keys)** and **software-based license activation**.
+
+Two common scenarios:
+
+1. **Hardware Dongle (USB HASP Key)**:
+
+   * Provided by OpenText.
+   * Must be inserted into the forensic workstation to run EnCase.
+   * Activation is typically automatic once plugged in.
+
+2. **Soft License via OpenText Licensing Portal**:
+
+   * Requires login to OpenText portal.
+   * Retrieve a **license key or activation file**.
+   * Use the built-in EnCase License Manager to activate.
+   * Internet connection required for activation.
+
+🔒 **Tip**: License keys are locked to either the USB dongle or a specific machine. **Do not lose the dongle**—replacements require going through OpenText support.
+
+---
+
+### User Interface Overview
+
+EnCase Forensic’s interface is **modular and highly customizable**, but it can look a bit overwhelming to first-time users. Once you understand the layout, though, it becomes second nature.
+
+---
+
+#### Main Components of the Interface
+
+Here’s a breakdown of the **core interface components** you’ll see after opening or creating a case:
+
+1. **Menu Bar** – Located at the top. Provides access to File operations, Tools, View options, etc.
+
+2. **Toolbar / Ribbon** – Quick access icons for common tasks (e.g., Add Evidence, Search, Create Bookmark, Generate Report).
+
+3. **Evidence Tab** – Displays a file-system-style view of loaded evidence (physical or logical). Think of this as the "Explorer" for your case.
+
+4. **Table Pane** – Displays detailed file listings, sorted by name, path, size, hash, etc.
+
+5. **View Pane** – Shows previews of selected files: text, hex, image, document, metadata, and more.
+
+6. **Tabs Area** – Where bookmarks, search results, reports, and EnScripts load in separate tabbed panes.
+
+7. **Filters Pane** – Lets you quickly filter by file type, extension, date, keyword hits, etc.
+
+8. **Case Log Pane** – Automatically records actions taken during the session. Crucial for maintaining chain of custody.
+
+9. **Bookmark Pane** – Displays saved findings with annotations, organized by category or artifact.
+
+---
+
+#### Navigation Tips
+
+EnCase follows a **pane-based workflow**, so understanding how to jump between views is key.
+
+* **Right-click is your friend** – Almost everything in the Evidence or Table Pane can be right-clicked to reveal actions (hash, export, bookmark, view in hex, etc.).
+
+* **Use Tabs to Stay Organized** – Search results, reports, and bookmarks open in tabs. You can rename, close, or rearrange them to avoid clutter.
+
+* **Keyboard Shortcuts**:
+
+  * `Ctrl + F` = Launch keyword search
+  * `Ctrl + B` = Bookmark selected items
+  * `Ctrl + L` = Open License Manager
+  * `F2` = Rename custom tabs or labels
+
+* **Drag-and-Drop Tabs**: Reorganize panes or move them into floating windows if you’re working on multiple monitors.
+
+---
+
+#### Customizing the Workspace
+
+EnCase allows you to **personalize the workspace layout** depending on your analysis style or screen size.
+
+* **Docking Panes**:
+
+  * All panes (Evidence, Table, View, etc.) can be docked, undocked, or repositioned.
+  * Right-click on a tab or pane title → `Docking Options`.
+
+* **Layouts**:
+
+  * Save custom layouts via `View` → `Workspace` → `Save Workspace As…`
+  * Ideal for switching between acquisition mode, analysis mode, or reporting workflows.
+
+* **Theme & Font Settings**:
+
+  * Access via `Tools` → `Options` → `User Interface`.
+  * You can adjust fonts, contrast, and line spacing for better readability.
+
+📌 **Pro Tip**: Use a dedicated workspace layout for volatile analysis (e.g., registry, event logs, or encrypted containers), separate from your standard file analysis view.
+
+---
+
+### Summary
+
+| Section                 | Key Points                                                                        |
+| ----------------------- | --------------------------------------------------------------------------------- |
+| **System Requirements** | Needs a 64-bit Windows OS, 16–32GB RAM, SSD recommended                           |
+| **Installation**        | Simple GUI installer; requires admin rights and possibly dependencies             |
+| **Licensing**           | Dongle or soft license via OpenText portal                                        |
+| **Interface**           | Modular and pane-based; includes Evidence tab, Table view, Hex/Text/Image preview |
+| **Customization**       | Fully dockable interface with savable workspaces and UI preferences               |
+
+With the proper setup, EnCase becomes a **powerful, court-validated forensic platform** ready for imaging, analysis, and reporting across a wide range of case types.
+
+
 
 ## Case Management
 
