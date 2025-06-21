@@ -201,16 +201,275 @@ Extracting strings from binary files is a **critical technique in digital forens
 * Official Unix `strings` manpage
 
 ## 3. Basic Usage of bstrings  
-    - Command-line syntax  
-    - Extracting strings from a file  
-    - Filtering ASCII and Unicode strings  
+
+### Command-line Syntax
+
+**bstrings** (the bstrlib C library) is a **programming library**, not a command-line tool — so it does not have a standalone command-line interface or command-line syntax.
+
+However, you can create your own **C programs** that use bstrings functions to extract, manipulate, and filter string data — and those programs can accept command-line arguments, like this:
+
+```bash
+./my_bstring_tool inputfile.bin
+```
+
+**In summary**: bstrings is used **via C API functions** inside your own programs — it is not an end-user CLI tool like `strings`.
+
+---
+
+### Extracting Strings from a File
+
+To use **bstrings** for extracting string data from a file, you would typically:
+
+1. **Open the file** in binary mode
+2. **Read data** into a buffer
+3. **Wrap the data** in a `bstring` object (if you want to use bstring functions)
+4. **Search for and extract readable strings**
+
+**Example (simplified):**
+
+```c
+#include <stdio.h>
+#include "bstrlib.h"
+
+int main(int argc, char *argv[]) {
+    if (argc < 2) {
+        printf("Usage: %s <file>\n", argv[0]);
+        return 1;
+    }
+
+    FILE *fp = fopen(argv[1], "rb");
+    if (!fp) {
+        perror("Error opening file");
+        return 1;
+    }
+
+    // Read file into bstring
+    fseek(fp, 0, SEEK_END);
+    long size = ftell(fp);
+    rewind(fp);
+
+    unsigned char *buffer = malloc(size);
+    fread(buffer, 1, size, fp);
+    fclose(fp);
+
+    bstring fileData = blk2bstr(buffer, size);
+    free(buffer);
+
+    // Now you can manipulate fileData with bstring functions!
+    printf("File size: %d bytes\n", blength(fileData));
+
+    bdestroy(fileData);
+    return 0;
+}
+```
+
+### Filtering ASCII and Unicode Strings
+
+**Filtering strings** with bstrings is done **programmatically** by using:
+
+* **Character tests** (`iscntrl()`, `isprint()`, `isascii()`) in C
+* Loops through the `bstring` data
+* Building new filtered bstrings based on criteria
+
+**Example: Filtering printable ASCII characters:**
+
+```c
+bstring printable = bfromcstr("");
+
+for (int i = 0; i < blength(fileData); i++) {
+    unsigned char c = bchar(fileData, i);
+    if (isprint(c)) {
+        bconchar(printable, c);
+    }
+}
+
+printf("Extracted printable ASCII: %s\n", bdata(printable));
+bdestroy(printable);
+```
+
+---
+
+**Handling Unicode**:
+
+* bstrings operates on **byte buffers**, so it does not interpret encodings by default.
+* If you know the file is **UTF-16**, you would process the data in **2-byte units** and use an external Unicode library (like ICU or libunistring), or write your own handling to convert to UTF-8 `bstring`s.
+
+---
+
+**Summary**:
+
+* **Command-line syntax** — Not applicable (bstrings is a C API)
+* **Extracting strings** — Read file into `bstring` and process as needed
+* **Filtering ASCII / Unicode** — Loop over `bstring` data and apply filters programmatically
+
+---
+
+**Sources:**
+
+* [https://github.com/antirez/bstring](https://github.com/antirez/bstring)
+* bstrlib.h public documentation
+* "Secure Coding in C and C++" — Robert C. Seacord
+* Common usage in open-source C projects (Redis, embedded software)
+
 
 ## 4. Advanced Features of bstrings  
-    - Using options and flags  
-      - Minimum string length (`-n`)  
-      - Filtering by character set  
-    - Extracting strings from memory dumps  
-    - Recursive directory scanning  
+
+### Using Options and Flags
+
+Since **bstrings** is a **programming library**, it does not itself support CLI options or flags like `-n`. However — if you write a C program that uses bstrings, you can **implement your own options and flags** by parsing `argc`/`argv`, for example:
+
+```c
+./my_bstrings_tool -n 6 -ascii myfile.bin
+```
+
+You would then:
+
+* Parse `-n 6` → set a minimum string length filter
+* Parse `-ascii` or `-unicode` → set desired character set filtering
+
+You can use `getopt()` or similar for parsing arguments in C.
+
+---
+
+#### Minimum String Length (`-n`)
+
+To implement **minimum string length**, after loading a file into a `bstring`, you would scan for sequences of printable characters, keeping track of their length:
+
+```c
+int minlen = 6;  // Example from -n 6
+bstring current = bfromcstr("");
+
+for (int i = 0; i < blength(fileData); i++) {
+    unsigned char c = bchar(fileData, i);
+    if (isprint(c)) {
+        bconchar(current, c);
+    } else {
+        if (blength(current) >= minlen) {
+            printf("%s\n", bdata(current));
+        }
+        btrunc(current, 0);  // Reset
+    }
+}
+
+if (blength(current) >= minlen) {
+    printf("%s\n", bdata(current));
+}
+bdestroy(current);
+```
+
+---
+
+#### Filtering by Character Set
+
+**ASCII filtering** is straightforward with `isprint()` or `isascii()`:
+
+```c
+if (isascii(c) && isprint(c)) { ... }
+```
+
+**Unicode filtering** is more advanced:
+
+* bstrings operates on **raw bytes**, so it does not parse UTF-16 or UTF-8 by itself.
+* You can:
+
+  * Use external Unicode libraries (ICU, libiconv) + bstrings
+  * Or scan manually for UTF-16 sequences (Windows memory dumps, PE files)
+
+---
+
+### Extracting Strings from Memory Dumps
+
+You can absolutely use **bstrings** to extract strings from memory dumps:
+
+**Steps:**
+
+1. Load the entire dump file (`.raw`, `.mem`, `.dmp`) into a `bstring`.
+2. Scan for readable ASCII or Unicode sequences as above.
+3. Optionally, match against known patterns (URLs, file paths, API calls).
+
+**Example:**
+
+```c
+FILE *fp = fopen("memdump.raw", "rb");
+fseek(fp, 0, SEEK_END);
+long size = ftell(fp);
+rewind(fp);
+
+unsigned char *buffer = malloc(size);
+fread(buffer, 1, size, fp);
+fclose(fp);
+
+bstring memdump = blk2bstr(buffer, size);
+free(buffer);
+
+// Now scan memdump as shown earlier
+```
+
+**This works very well for:**
+
+* Windows memory captures (Volatility output)
+* Linux `/proc/kcore`
+* MacOS crash dumps
+
+---
+
+### Recursive Directory Scanning
+
+**bstrings itself does not handle directory traversal** — but in C you can easily combine bstrings with:
+
+* POSIX `opendir()` / `readdir()` for Linux/Unix
+* `FindFirstFile` / `FindNextFile` on Windows
+* Or cross-platform: `dirent.h` (portable library)
+
+**Approach:**
+
+1. Write recursive directory traversal.
+2. For each file:
+
+   * Open and load into a `bstring`
+   * Apply your string extraction logic
+
+**Pseudo-code example:**
+
+```c
+void scan_dir(const char *path) {
+    DIR *d = opendir(path);
+    struct dirent *entry;
+
+    while ((entry = readdir(d)) != NULL) {
+        if (entry->d_type == DT_DIR) {
+            // recurse into subdir if needed
+        } else {
+            // open file and process
+            process_file(entry->d_name);
+        }
+    }
+    closedir(d);
+}
+```
+
+---
+
+**Summary:**
+
+| Feature                      | How to Implement in bstrings                               |
+| ---------------------------- | ---------------------------------------------------------- |
+| Using options and flags      | Parse `argc`/`argv` in your program                        |
+| Minimum string length (`-n`) | Scan bstring, track sequence length                        |
+| Filtering by char set        | `isascii()`, `isprint()`, external libs for Unicode        |
+| Extracting from memory dumps | Load full dump → process with bstring functions            |
+| Recursive directory scanning | Implement using `dirent.h` + bstring-based file processing |
+
+---
+
+**Sources:**
+
+* [https://github.com/antirez/bstring](https://github.com/antirez/bstring)
+* "The C Programming Language" — Kernighan & Ritchie
+* Linux manpages for `dirent.h` and `opendir()`
+* "Secure Coding in C and C++" — Seacord
+* SANS DFIR — memory dump analysis examples
+* Volatility Framework documentation (memory forensics context)
 
 ## 5. Practical Applications  
     - Analyzing executable files  
