@@ -11,7 +11,7 @@
 
 ---
 
-### 🛡 CyberDefenders
+### CyberDefenders
 
 * **Host**: CyberDefenders.org – a blue-team training platform for SOC analysts.
 * **Challenges**: Blue Team CTFs, DFIR labs, Threat Hunting, Malware Analysis.
@@ -21,7 +21,7 @@
 
 ---
 
-### 🏴 DEF CON CTF
+### DEF CON CTF
 
 * **Host**: DEF CON conference, Las Vegas—world’s premier hacker gathering.
 * **Format**: High-level attack/defense CTF held on-site during the conference ([Wikipedia][8]).
@@ -68,7 +68,7 @@
 
 ---
 
-### 📌 Summary Table
+### Summary Table
 
 | CTF / Platform      | Focus Area                       | Format & Entry                                                     |
 | ------------------- | -------------------------------- | ------------------------------------------------------------------ |
