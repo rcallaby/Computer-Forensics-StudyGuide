@@ -468,34 +468,312 @@ Splunk processes data through a **multi-stage pipeline**, which is essential to 
 
 
 ## 4. Searching in Splunk
-    - **Search Processing Language (SPL) Basics**
-      - Syntax and structure of SPL.
-      - Common commands: `search`, `stats`, `table`, `eval`.
-    - **Using Search Commands**
-      - Filtering and transforming data.
-      - Aggregating and visualizing results.
-    - **Search Best Practices**
-      - Optimizing search performance.
-      - Using time range pickers and search modes.
+### 1 . Search Processing Language (SPL) Basics
+
+| Concept                | Key points                                                                                                                                                                                                                                                                                                                      | Why it matters in forensics                                                                                                                                                                                  |                                                                                               |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
+| **Syntax & structure** | • A search is a chain of commands separated by the pipe (\`                                                                                                                                                                                                                                                                     | \`) character. <br>• First token after each pipe is the command; the rest are arguments/options. <br>• SPL is case‑insensitive for commands, but field names are case‑sensitive. ([Splunk Documentation][1]) | Lets investigators build repeatable “recipes” that transform raw log events into evidence.    |
+| **`search` command**   | • Default operator; returns events that match Boolean expressions, wild‑cards, CIDR, fields, and time modifiers. <br>• Because `search` runs *first* (unless you explicitly filter earlier with `index=` or `source=`), place the most‑selective terms as early as possible to reduce event volume. ([Splunk Documentation][2]) | Early narrowing lowers disk I/O and speeds triage when timelines are tight.                                                                                                                                  |                                                                                               |
+| **`stats` command**    | • Produces aggregate statistics (`count`, `sum`, `avg`, `min`, `max`, etc.) grouped by any field(s). <br>• Syntax \`…                                                                                                                                                                                                           | stats count by src\_ip`, or multi‑stats: `stats dc(user) AS unique\_users, sum(bytes)\` ([Splunk Documentation][3])                                                                                          | Quickly turns millions of firewall or proxy hits into high‑level counts for incident scoping. |
+| **`table` command**    | • Reshapes results into a columnar table with only the specified fields: \`…                                                                                                                                                                                                                                                    | table \_time user dest\_ip\`. ([Splunk Documentation][2])                                                                                                                                                    | Produces human‑readable artefacts that can be exported directly into investigative notes.     |
+| **`eval` command**     | • Creates or transforms fields on the fly with arithmetic, string, Boolean, or conditional logic: \`…                                                                                                                                                                                                                           | eval suspect\_score=if(bytes>1000000,1,0)\` ([Splunk Documentation][4])                                                                                                                                      | Lets analysts attach context (e.g., “is\_admin\_login”) without altering raw evidence.        |
+
+---
+
+### 2 . Using Search Commands – practical patterns
+
+1. **Filtering & transforming**
+
+   ```spl
+   index=web_logs status=404  
+   | eval uri_path=lower(uri)  
+   | where NOT uri_path LIKE "%.png"  
+   | table _time client_ip uri_path
+   ```
+
+   *Sequence:* narrow by index, filter on `status`, normalise case with `eval`, drop noise with `where`, present clean table. Each stage prunes data, so later commands operate on fewer events, improving speed. ([Splunk Documentation][2], [Splunk Documentation][4])
+
+2. **Aggregating for pivot views**
+
+   ```spl
+   index=endpoint sourcetype=sysmon EventCode=1  
+   | stats earliest(_time) AS first_seen latest(_time) AS last_seen by Image, user
+   ```
+
+   Useful to see when a binary first executed and which user touched it – a common timeline question in malware‑forensics. ([Splunk Documentation][3])
+
+3. **Visualising quickly**
+
+   ```spl
+   index=dhcp  
+   | timechart span=1h count by action
+   ```
+
+   `timechart` is a macro for `stats` + `_time` bucketing and delivers ready‑to‑graph series in Splunk Web’s UI. ([Splunk Documentation][2])
+
+---
+
+### 3 . Search Best Practices
+
+| Technique                          | Explanation                                                                                                                                                                                                                                      | Source                                                                                                                                                                                        |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Narrow the time window first**   | Use the *time‑range picker* or explicit modifiers such as `index=fw earliest=-2h latest=now` so Splunk only reads buckets that matter. ([Splunk Documentation][5])                                                                               |                                                                                                                                                                                               |
+| **Specify index/sourcetype early** | `index=proxy sourcetype=squid` before other terms lets the indexers skip unrelated buckets, improving throughput. ([Splunk Documentation][2])                                                                                                    |                                                                                                                                                                                               |
+| **Leverage search modes**          | In Splunk Web, “Fast” mode returns only essential fields and suppresses event lists, trading detail for speed—ideal for iterative pivoting. “Verbose” shows every field/value; reserve it for final evidence review. ([Splunk Documentation][6]) |                                                                                                                                                                                               |
+| **Keep pipes ordered by cost**     | Low‑cost filters (`where`, `search`, `dedup`) should precede high‑cost commands (`stats`, `sort`). This minimises the dataset each expensive stage must process. ([Splunk Documentation][5])                                                     |                                                                                                                                                                                               |
+| **Reuse work via acceleration**    | For recurring investigations (e.g., daily malware beaconing checks), enable *report acceleration* or build *summary indexes* so later queries read rolled‑up results instead of raw logs. ([Splunk Documentation][6])                            |                                                                                                                                                                                               |
+| **Document searches**              | Add \`                                                                                                                                                                                                                                           | comment "Ticket #123 – Initial triage of suspicious VPN logins"\` inside searches; comments are ignored at runtime but preserved in history for chain‑of‑custody. ([Splunk Documentation][1]) |
+
+---
+
+#### Quick forensic workflow example
+
+```spl
+index=win_security EventCode=4625  /* failed logons */
+| dedup 5 user, src_ip              /* collapse brute‑force noise */
+| eval utc_time=strftime(_time,"%Y-%m-%dT%H:%M:%SZ")
+| stats count AS failures, values(src_ip) AS hosts by user
+| where failures > 10
+| sort -failures
+```
+
+This single SPL stanza answers *“Which accounts had >10 failed logons, from which hosts, and when?”*—a common intrusion‑detection task—while following the optimisation principles above.
+
+---
+
+**Further reference**
+
+* **SPL Search Reference manual** – exhaustive syntax and examples for every command. ([Splunk Documentation][7])
+* **Quick tips for optimisation** – concise checklist to keep searches performant. ([Splunk Documentation][5])
+* **Anatomy of a search** – deeper dive into parsing order, fields, and quoting rules. ([Splunk Documentation][1])
+
+These official Splunk documents are updated for Splunk Enterprise 9.4 (2025‑06‑14 build) and are considered the canonical, citable source set for forensic workflows.
+
+[1]: https://docs.splunk.com/Documentation/Splunk/9.4.2/Search/Aboutsearchlanguagesyntax?utm_source=chatgpt.com "Anatomy of a search - Splunk Documentation"
+[2]: https://docs.splunk.com/Documentation/Splunk/9.4.2/Search/Aboutthesearchlanguage?utm_source=chatgpt.com "About the search language - Splunk Documentation"
+[3]: https://docs.splunk.com/Documentation/SCS/current/SearchReference/StatsCommandOverview?utm_source=chatgpt.com "stats command: Overview, syntax, and usage - Splunk Documentation"
+[4]: https://docs.splunk.com/Documentation/Splunk/9.3.2/SearchReference/Eval?utm_source=chatgpt.com "eval | Splunk Docs"
+[5]: https://docs.splunk.com/Documentation/Splunk/9.4.2/Search/Quicktipsforoptimization?utm_source=chatgpt.com "Quick tips for optimization - Splunk Documentation"
+[6]: https://docs.splunk.com/Documentation/Splunk/9.4.2/Search/Quicktipsforoptimization "Quick tips for optimization - Splunk Documentation"
+[7]: https://docs.splunk.com/Documentation/Splunk/9.4.2/SearchReference/WhatsInThisManual?utm_source=chatgpt.com "Welcome to the Search Reference - Splunk Documentation"
+
 
 ## 5. Creating Dashboards and Visualizations
-    - **Introduction to Dashboards**
-      - Purpose and benefits of dashboards.
-      - Types of visualizations available in Splunk.
-    - **Building a Dashboard**
-      - Adding panels and visualizations.
-      - Customizing layout and appearance.
-    - **Advanced Dashboard Features**
-      - Using tokens and inputs.
-      - Dynamic drilldowns and interactivity.
+
+## **1. Introduction to Dashboards**
+
+### Purpose and Benefits of Dashboards
+
+| Purpose                    | Description                                                                                                         | Forensic Use Case                                                                    |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| **Data Summarization**     | Dashboards provide a visual interface to summarize large volumes of log/event data into easily digestible insights. | Track failed logins, lateral movement, or unusual file access across multiple hosts. |
+| **Investigation Support**  | Analysts can correlate events across time, host, and user dimensions to identify suspicious patterns.               | View real-time attack timelines, compromised accounts, or malware communication.     |
+| **Operational Visibility** | Dashboards monitor security status and forensics KPIs over time.                                                    | E.g., track host-based intrusion detection logs across the enterprise.               |
+| **Automation and Sharing** | Dashboards are shareable and update automatically.                                                                  | Present investigation progress to legal/compliance teams without exporting data.     |
+
+> **Official Reference**:
+> [Splunk Dashboards and Visualizations Manual – About Dashboards](https://docs.splunk.com/Documentation/Splunk/latest/Viz/Aboutdashboardpanels)
+
+---
+
+### Types of Visualizations in Splunk
+
+Splunk supports many visualization types through Simple XML and Dashboard Studio:
+
+| Type                      | Description                                        | Forensics Usage                                         |
+| ------------------------- | -------------------------------------------------- | ------------------------------------------------------- |
+| **Single Value**          | Displays a single stat like `count`, `avg`, `sum`. | Show number of compromised users or malware detections. |
+| **Tables**                | Display event or field data in rows/columns.       | Summarize endpoint alerts, file hashes, etc.            |
+| **Line and Area Charts**  | Show changes over time.                            | Timeline of login attempts, beaconing patterns.         |
+| **Bar and Column Charts** | Compare counts across categories.                  | Most targeted hosts, top event codes.                   |
+| **Pie Charts**            | Visualize proportions.                             | % of attacks by protocol or country.                    |
+| **Choropleth Maps**       | Geographic heatmaps.                               | Geolocation of attacker IPs.                            |
+| **Treemaps**              | Hierarchical data layout.                          | Nested grouping of threat categories.                   |
+
+> [Splunk Visualization Reference](https://docs.splunk.com/Documentation/Splunk/latest/Viz/PanelreferenceforSimplifiedXML)
+
+---
+
+## **2. Building a Dashboard**
+
+### Adding Panels and Visualizations
+
+| Task                     | Description                                                                                         | Source                                                                            |                          |
+| ------------------------ | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ------------------------ |
+| **Create New Dashboard** | Go to *Search & Reporting* app → Dashboards → *Create New Dashboard* (Classic or Dashboard Studio). | [Splunk Docs](https://docs.splunk.com/Documentation/Splunk/latest/Viz/Dashboards) |                          |
+| **Add a Panel**          | You can add a saved search or inline SPL query as a panel. Supports charts, tables, maps.           | Example: \`index=fw                                                               | stats count by src\_ip\` |
+| **Panel Options**        | Title, description, drilldown behavior, refresh interval, and visualization type.                   |                                                                                   |                          |
+
+> You can also convert an existing search into a dashboard panel by clicking **Save As > Dashboard Panel** from the Search view.
+
+### Customizing Layout and Appearance
+
+| Option             | Classic Dashboard            | Dashboard Studio                           |
+| ------------------ | ---------------------------- | ------------------------------------------ |
+| **Layout**         | Grid-based (rows and panels) | Absolute positioning or canvas-like layout |
+| **Themes**         | Light or dark themes         | Multiple visual themes and custom colors   |
+| **Custom CSS/JS**  | Limited support via web app  | Rich support in Studio                     |
+| **Icons & Shapes** | Not supported                | Available in Studio                        |
+
+> [Building Dashboards in Studio](https://docs.splunk.com/Documentation/Splunk/latest/Viz/Buildandeditdashboardswithdashboardstudio)
+
+---
+
+## **3. Advanced Dashboard Features**
+
+### Using Tokens and Inputs
+
+Tokens make dashboards dynamic and reusable by letting users interact with the data via inputs:
+
+| Input Type                     | Example                                           | Use Case                                 |
+| ------------------------------ | ------------------------------------------------- | ---------------------------------------- |
+| **Dropdown**                   | Select `hostname`, `user`, or `index`             | Filter data by selected host or user     |
+| **Text Box**                   | Enter a string (e.g., a filename)                 | Manually search a specific IOC           |
+| **Time Picker**                | Select time range                                 | Limit forensic scope to relevant windows |
+| **Radio Buttons / Checkboxes** | Choose between views (e.g., overview vs detailed) | Interactive triage dashboards            |
+
+Tokens (like `$host$`, `$user$`) can be embedded in SPL queries, panel titles, or URLs.
+
+> [Dashboard Tokens Documentation](https://docs.splunk.com/Documentation/Splunk/latest/Viz/tokens)
+
+---
+
+### Dynamic Drilldowns and Interactivity
+
+| Feature                              | Description                                                                     | Forensic Benefit                                                |
+| ------------------------------------ | ------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| **Drilldowns**                       | Click on a chart/table to pass values to other panels/pages.                    | Click a suspicious IP and open full logs or threat intel panel. |
+| **Link to another dashboard/report** | Panels can redirect to other dashboards with parameters (tokens).               | Link summary to case-specific timelines.                        |
+| **Custom JavaScript (Advanced)**     | In Classic dashboards only, you can write custom JS to do complex UI behaviors. | Show/hide panels based on security alerts.                      |
+
+**Example Drilldown Scenario:**
+
+* A pie chart shows top 5 attack sources.
+* Clicking on one source sets a token (`$src_ip$`) and opens a new panel showing all logs from that IP.
+
+> [Enable Drilldowns](https://docs.splunk.com/Documentation/Splunk/latest/Viz/DrilldownIntro)
+
+---
+
+## Summary
+
+| Section                                                | Key Takeaway                                                                                |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
+| **Dashboards are critical in forensic investigations** | They support real-time insights, pattern recognition, and help in briefing decision-makers. |
+| **Panel creation and layout is modular**               | You can build custom views using SPL + tokens, especially in Dashboard Studio.              |
+| **Advanced features like tokens and drilldowns**       | Allow you to build interactive, investigative workflows that reduce analysis time.          |
+
+---
+
+## Recommended Official Resources
+
+* [Splunk Dashboards and Visualizations Manual](https://docs.splunk.com/Documentation/Splunk/latest/Viz/Aboutvisualizations)
+* [Splunk Dashboard Studio Overview](https://docs.splunk.com/Documentation/Splunk/latest/Viz/DashboardStudio)
+* [Dashboard Examples App (on Splunkbase)](https://splunkbase.splunk.com/app/1603/)
+
 
 ## 6. Alerts and Reporting
-    - **Creating Alerts**
-      - Defining alert conditions.
-      - Configuring alert actions (email, scripts, etc.).
-    - **Generating Reports**
-      - Saving search results as reports.
-      - Scheduling and exporting reports.
+
+## **1. Creating Alerts in Splunk**
+
+### Defining Alert Conditions
+
+An **alert** in Splunk is a saved search that monitors for specific conditions and triggers an action when those conditions are met. In digital forensics, alerts often flag indicators of compromise (IOCs) or suspicious behavior.
+
+| Step                       | Details                                                                                                                                                                                | Forensic Use Case                                                 |                                                      |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ---------------------------------------------------- |
+| **Write SPL search**       | Create a search query that detects suspicious patterns.<br>Example:<br>\`index=wineventlog EventCode=4625                                                                              | stats count by user\`                                             | Detect multiple failed login attempts (brute force). |
+| **Set Trigger Conditions** | Alerts can trigger when:<br>• search returns results<br>• a specific number is exceeded<br>• a field matches a pattern<br>• a statistical threshold is crossed                         | “Trigger if failed login count > 10 for same user within 5 mins.” |                                                      |
+| **Choose Trigger Type**    | • **Per-Result** – triggers once for *each* event (e.g., every file delete).<br>• **Once** – triggers for overall condition match.<br>• **Rolling Window** – tracks changes over time. | Helps distinguish between single malicious acts and trends.       |                                                      |
+| **Set Time Window**        | Choose a **schedule** and **time range** for search execution (e.g., every 5 min, looking back 10 min).                                                                                | Balances timeliness with data availability.                       |                                                      |
+
+> [Splunk Docs – About Alerts](https://docs.splunk.com/Documentation/Splunk/latest/Alert/Aboutalerts)
+
+---
+
+### Configuring Alert Actions
+
+Splunk supports **built-in and custom alert actions** when a condition is triggered:
+
+| Action Type                      | Description                                                                                          | Forensic Application                                    |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| **Email**                        | Sends alert details to analysts or IR teams. Includes subject, message, search results, and links.   | “Email security@ with list of detected malware hashes.” |
+| **Webhook / Script**             | Run custom scripts or send JSON to SOAR, SIEM, or ticketing system (e.g., ServiceNow, Cortex XSOAR). | Automatically escalate high-severity alerts.            |
+| **Webhook to Slack or Teams**    | Send alert info to collaboration platforms using Splunk Alert Webhook app or 3rd-party integrations. | Immediate triage in response channels.                  |
+| **Add to Triggered Alerts list** | Makes alert show up in the *Alerts* tab in Splunk Web for review.                                    | Great for manual investigation workflows.               |
+| **Run a Script**                 | Executes a `.sh`/`.py`/`.bat` script hosted on the Splunk server.                                    | Trigger external forensic tools or write to case logs.  |
+
+> [Configure Alert Actions – Splunk Docs](https://docs.splunk.com/Documentation/Splunk/latest/Alert/Configuringscheduledalerts)
+
+---
+
+## **2. Generating Reports in Splunk**
+
+### Saving Search Results as Reports
+
+A **report** in Splunk is a saved search that returns a static or periodically refreshed view of your data.
+
+| Task                          | Description                                                                               | Forensic Use                                                           |
+| ----------------------------- | ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| **Save a search as a report** | From the search UI, click **Save As > Report**. Assign a title, description, permissions. | Save weekly malware detection summaries or file access logs.           |
+| **Format output**             | Choose table, chart, or visualization.<br>Can include formatting for CSV/HTML/PDF output. | Create easily readable records for chain-of-custody or external audit. |
+| **Report Permissions**        | Set who can view/run/edit (private, app, global).                                         | Secure confidential investigations from general Splunk users.          |
+
+> [About Reports – Splunk Docs](https://docs.splunk.com/Documentation/Splunk/latest/Report/Aboutreports)
+
+---
+
+### Scheduling and Exporting Reports
+
+| Feature                 | Description                                                                       | Forensic Relevance                                         |
+| ----------------------- | --------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| **Scheduled Reports**   | Run searches at specific intervals (e.g., daily, hourly, monthly).                | Daily listing of USB insertions, privileged access events. |
+| **Export Formats**      | • CSV<br>• PDF<br>• HTML<br>• JSON<br>Export via UI or automated action.          | Easily attach findings to case notes or legal documents.   |
+| **Email Report Output** | Configure scheduled reports to be emailed as attachments.                         | Share routine scans with IR, legal, or compliance teams.   |
+| **Summary Indexing**    | Store report results in a summary index for faster future access or dashboarding. | Good for recurring investigations over months of data.     |
+
+> [Schedule Reports – Splunk Docs](https://docs.splunk.com/Documentation/Splunk/latest/Report/Schedulereports)
+
+---
+
+## Example: Creating a Suspicious Login Alert
+
+```spl
+index=wineventlog EventCode=4625 OR EventCode=4624
+| stats count(eval(EventCode=4625)) AS failed, count(eval(EventCode=4624)) AS success by user
+| where failed > 5 AND success >= 1
+```
+
+**Purpose**: Detect brute-force attack followed by successful login
+**Alert Settings**:
+
+* Type: Scheduled Alert
+* Frequency: Every 10 minutes
+* Trigger: When search results > 0
+* Action: Send email to SOC team and log to file for case tracking
+
+---
+
+## Summary Table
+
+| Feature        | Alerts                                | Reports                                  |
+| -------------- | ------------------------------------- | ---------------------------------------- |
+| **Purpose**    | Trigger actions based on events       | Present or archive search results        |
+| **Real-Time**  | Yes (real-time or scheduled)          | No (scheduled only)                      |
+| **Actions**    | Email, script, webhook, log entry     | Email, export, dashboard                 |
+| **Use Case**   | Intrusion detection, malware behavior | Weekly summaries, audit logs, compliance |
+| **Visibility** | Alert tab or incident workflow        | Report tab or dashboard integration      |
+
+---
+
+## Official Resources
+
+* [Splunk Alerting Manual](https://docs.splunk.com/Documentation/Splunk/latest/Alert/Whatsinthismanual)
+* [Splunk Reporting Manual](https://docs.splunk.com/Documentation/Splunk/latest/Report/Whatsinthismanual)
+* [Search Examples for Alerts](https://docs.splunk.com/Documentation/Splunk/latest/SearchTutorial/Usesearchalerts)
+
+Would you like a real-world forensic case scenario that shows how alerts, reports, and dashboards work together?
+
 
 ## 7. Splunk Apps and Add-ons
     - **What are Splunk Apps?**
