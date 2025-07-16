@@ -1,7 +1,5 @@
 # EnCase Tutorial 
 
-## Executive Summary: EnCase Forensic – The Digital Sleuth’s Power Tool
-
 ### Who Created EnCase?
 
 EnCase was developed by **Guidance Software**, a U.S.-based company founded in 1997 by Shawn McCreight, a former law enforcement officer who saw the need for more robust digital forensic tools. In 2017, Guidance Software was acquired by **OpenText**, a Canadian enterprise information management company, which now maintains and develops the EnCase product line under its **OpenText Security Solutions** division.
@@ -654,28 +652,59 @@ EnCase Forensic’s built-in tools for acquiring and managing evidence are desig
 
 
 ## Evidence Analysis
-- File System Analysis
-    - Exploring file structures
-    - Recovering deleted files
-- Keyword Searching
-    - Setting up keyword lists
-    - Running searches and analyzing results
-- Email and Internet Artifacts
-    - Analyzing email data
-    - Investigating browser history and cache
-- Registry Analysis
-    - Extracting and interpreting registry data
-- Timeline Analysis
-    - Creating and interpreting timelines
-    - Identifying key events
+
+### File System Analysis
+
+**Exploring file structures** – EnCase mounts each evidence file’s partition(s) read‑only and parses the metadata into its **Primary Evidence Cache** so you can browse NTFS, exFAT, APFS and other file‑systems in the Tree/Table panes exactly as an OS would present them. The built‑in *Conditions* and *Filters* let you slice the volume by attributes (e.g., “only unallocated clusters” or “only executable files”), while support for APFS Snapshots and Windows VSS lets you pivot between historical views of a disk to spot previous states of the file tree. ([OpenText][1], [wongkenny240.gitbook.io][2])
+
+**Recovering deleted files** – Because EnCase indexes slack space, unallocated space and snapshot differentials, a deleted entry can be carved or simply undeleted. A common workflow is **EnScript → Case Processor → File Finder**, which automates signature‑based carving and flags records with **Red** (deleted) or **Gray** (over‑written) icons; investigators can then copy the file or add it to a bookmark for reporting. ([Forensic Focus][3], [OpenText][1])
+
+---
+
+### Keyword Searching
+
+**Setting up keyword lists** – Keywords can be added one‑by‑one or imported from a CSV/TXT list in the **Keyword** window. Lists may include plain‑text, GREP/Regex, Unicode, and hash values, and can be grouped so they run as a single job. ([EnCaseBook.com][4])
+
+**Running searches and analyzing results** – When you launch an *Index* or *Keyword* search, EnCase first tokenizes data with the Apache Lucene engine (v8.x) and stores hits in the evidence cache. Results appear in the **Search** tab with context preview, hit count, file path and Unicode rendering, and can be bookmarked or exported. Indexed search drastically accelerates ad‑hoc queries later in the case. ([OpenText][1], [OpenText][5])
+
+---
+
+### Email and Internet Artifacts
+
+**Analyzing email data** – EnCase parses PST, OST, MBOX and MIME containers directly. You can right‑click a PST → **Entries → View File Structure** to mount the folders, then use an EnScript (e.g., “PST to Excel”) or the Evidence Processor’s *Email Parsing* module to extract headers, bodies, attachments and message‑IDs for triage or Excel reporting. ([Forensic Focus][6], [forensickb.com][7], [OpenText][5])
+
+**Investigating browser history and cache** – The Evidence Processor’s *Internet Artifact* module parses Chrome, Edge, Firefox, IE and Safari SQLite/Dat files, generating artifacts such as History, Downloads, Cookies and Form Data. These populate the **Artifacts** and **Timeline** views, where you can filter by domain, URL or timestamp to reconstruct user activity. ([OpenText][5])
+
+---
+
+### Registry Analysis
+
+**Extracting and interpreting registry data** – Load the **NTUSER.DAT**, **SYSTEM** or other hive files, then switch to **View → Windows Registry**. EnCase displays the key hierarchy with last‑write timestamps; built‑in Conditions can highlight *Auto‑Run*, *USB*, or *RecentDocs* keys. You can bookmark a key or export it to XML/CSV for further analysis. ([YouTube][8], [OpenText][9])
+
+---
+
+### Timeline Analysis
+
+**Creating and interpreting timelines** – Since EnCase Forensic 22.3 the **Timeline View** has been fully modernized: select any evidence scope, click **Timeline**, and the UI renders a zoomable bar chart of file system, registry, email and internet artifact timestamps. Investigators may choose which timestamp fields to plot (e.g., \$MFT Modified vs. Created) and restrict the date range with sliders. ([cyber.quality-net.co.jp][10], [OpenText][5])
+
+**Identifying key events** – Combine Conditions (e.g., “Executable AND Timeline between 2025‑05‑01 and 2025‑05‑03”) to isolate activity bursts such as program execution or data exfiltration. Significant hits can be bookmarked, added to an EnScript report, or exported as CSV for visualization in external tools. ([OpenText][11])
+
 
 ## Reporting
-- Generating Reports
-    - Customizing report templates
-    - Including evidence and analysis results
-- Exporting Data
-    - Formats supported
-    - Sharing reports with stakeholders
+
+### Generating Reports
+
+**Customizing report templates** – EnCase lets you start from the built‑in “Standard,” “Smartphone,” or “Bookmarks‑only” layouts and then tailor everything: section order, fonts, logos, cover page text, and which metadata fields appear. Open **Report → Template Manager**, duplicate a stock template, and edit each section’s XML definition or use the WYSIWYG pane to hide/show elements. Once saved, templates are reusable across cases so every examiner (or external reviewer using EnCase Portable) sees the same, branded format.([Westcon-Comstor][1], [OpenText][2], [forensics618.rssing.com][3])
+
+**Including evidence and analysis results** – You decide what populates a report by tagging items (Bookmarks, Results, Conditions, Timeline slices, Registry keys, etc.). In the **Generate Report** dialog, check the boxes for the bookmark folders or artifact categories you want; EnCase automatically embeds thumbnails, hex views, or decoded text depending on object type. A hash‑verified copy of each selected file can also be bundled with the report or wrapped into a Logical Evidence File (LEF/LX01) for defensible disclosure.([Westcon-Comstor][1], [encase-docs.opentext.com][4])
+
+---
+
+### Exporting Data
+
+**Formats supported** – Final reports can be saved directly to **Text, RTF (opens in Word), HTML, XML, or PDF**; smartphone reports add optional **KML** for geo‑points. Evidence exports include **E01/Ex01** (full physical images), **L01/Lx01 LEF** (logical subsets), **DD/DMG** (raw), and CSV/TSV for keyword or artifact tables.([Westcon-Comstor][1], [encase-docs.opentext.com][4], [OpenText][5], [mailxaminer.com][6])
+
+**Sharing reports with stakeholders** – Choose **“Embed copies of items”** for regulators or outside counsel who need stand‑alone evidence, or omit them to keep the file lightweight for email. HTML reports can be zipped and uploaded to a secure portal; PDFs are court‑friendly and preserve pagination and signatures; RTF lets investigators add narrative comments in Word before finalizing. For very large data sets, export the relevant bookmarks to an **Lx01/Ex01** container and provide the companion checksum log so another analyst can ingest it directly into EnCase, Magnet AXIOM, or X‑Ways without losing chain‑of‑custody metadata.([Westcon-Comstor][1], [forensickb.com][7], [forensicfocus.com][8])
 
 ## Advanced Features
 - Scripting and Automation
