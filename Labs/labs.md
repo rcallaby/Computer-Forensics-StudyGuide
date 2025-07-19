@@ -1,13 +1,143 @@
 # Labs
 
-- Cybrary Computer Forensics and investigations labs
-- DFIR Labs
-- NIST Dataset
-- Root-me.org
-- TryHackMe DFIR Labs
-- Cyberforensic.net
-- aboutdfir.com
-- linuxleo.com
+## Cybrary: Computer Forensics & Investigations Virtual Labs
+
+Cybrary’s **Computer Forensics and Investigations Virtual Lab** (powered by Practice Labs) offers a hands‑on cloud-based environment where learners:
+
+* Identify early indicators of online criminal or wireless attacks
+* **Legally gather and preserve digital evidence**
+* Utilize tools like **Autopsy** to analyze drive images and retrieve deleted artifacts ([Cybrary][1], [Cybrary][2])
+
+Additional features include:
+
+* Guided labs that walk you through choosing proper acquisition methods, file system exploration, and data carving
+* Coverage of live vs. dead disk acquisitions, understanding EXT, FAT, NTFS systems, malware safe‑execution, mobile forensics, and building a forensic toolkit ([Cybrary][3])
+
+For individuals studying with Cybrary, this lab reinforces theoretical learning with real-world exercises—ideal for EC-Council CHFI certification and practical skill building ([Class Central][4]).
+
+---
+
+## DFIR Labs (by The DFIR Report)
+
+**DFIR Labs** provides a **cloud-based**, interactive DFIR training platform built upon sanitized real-world intrusion datasets:
+
+* Labs simulate actual cyber-attacks:
+
+  * **System logs**: Windows Event + Sysmon
+  * **Network logs**: Zeek + Suricata
+  * **Memory analysis**: MemProcFS timelines
+  * **Detection rules**: Sigma rule sets ([The DFIR Report][5])
+
+* **Interactive case studies**: Guided scenario walkthroughs with questions prompting users to investigate and link evidence ([The DFIR Report][5])
+
+* Integration with **Elastic or Splunk** for realistic log-based investigations ([The DFIR Report][5])
+
+* Includes **challenges & leaderboards**, letting learners benchmark progress and fosters engagement ([The DFIR Report][5])
+
+Ideal for mid-to-advanced learners, DFIR Labs bridges the gap between training and real-world incident response.
+
+---
+
+## NIST CFReDS: Computer Forensic Reference Data Sets
+
+NIST’s **Computer Forensic Reference Data Sets (CFReDS)** are **open-source datasets of forensic disk images** designed for tool validation, investigator training, and proficiency testing:
+
+* Contains **simulated evidence**—e.g., seeded files with documented strings—to check recovery/search tool accuracy ([The DFIR Report][5], [NIST][6])
+* Images are sourced from the Computer Forensic Tool Testing (CFTT) project and other contributors ([NIST][6])
+* Accessible via the NIST CFReDS portal or Data.gov gateway ([cfreds.nist.gov][7])
+
+These datasets are extensively documented, suitable for comparing tool outputs to known artifact placement, testing investigator accuracy, and supporting lab accreditation ([NIST][6]).
+
+---
+
+## Root‑Me.org – Forensics Challenges
+
+**Root‑Me** is a well-established, multilingual CTF-like platform offering **600+ challenges** and **178+ virtual environments** in topics including Computer Forensics ([Invent Your Shit][1]):
+
+* **Forensics category**: challenges cover disk image analysis, memory forensics, network packet analysis, steganography, mobile artifacts, and log forensics ([root-me.org][2]).
+* **Realistic environments**: run intro-level to advanced scenarios inside sandboxed VMs via the browser.
+* **Community-driven**: most challenges come with community-published solutions, fostering peer learning ([root-me.org][3]).
+* **Flexibility**: free for individuals; an optional membership supports educational and corporate usage ([root-me.org][3], [root-me.org][4]).
+
+**Ideal for:** Entrants and intermediate students aiming to sharpen investigation skills across diverse forensic domains.
+
+---
+
+## TryHackMe – DFIR Labs
+
+TryHackMe offers structured DFIR content with hands-on rooms and guided environments ([TryHackMe][5]):
+
+* **“DFIR: An Introduction”**: covers core principles of Digital Forensics & Incident Response (DFIR), including timeline creation, tool usage, and investigative methodology ([TryHackMe][6]).
+* **Windows & Linux artifact analysis**: learn to extract forensic artifacts, including logs, registry, browser history, and basic malware sample review ([TryHackMe][5]).
+* **DFIR Essentials**: deepens understanding of ethics, DFIR philosophy, and decision-making ([TryHackMe][7]).
+* **Crime Scenario Rooms**: simulate real-world court-authorized investigations using disk/memory images and logs ([TryHackMe][8]).
+* **CTF-style labs**: rooms like “Mayhem” use real evidence.zip packs for immersive learning, with guidance on OSINT and timeline creation ([Medium][9], [TryHackMe][8]).
+* **PracticeBox (AttackBox)**: virtual machines are provided to analyze evidence safely without local setup.
+
+**Ideal for:** Beginners to intermediate learners progressing through guided DFIR workflows with escalating complexity.
+
+---
+
+## Cyberforensic.net
+
+An educational initiative founded by Dr. Yier Jin (Univ. Florida) and Dr. Cliff Zou (Univ. Central Florida), **Cyberforensic.net** aims to integrate academic rigor into forensic training ([Medium][9], [scientia.global][10]):
+
+* **Training portal**: hosts digital forensics & IoT security content built upon their university-level curricula ([scientia.global][10]).
+* **Content areas**:
+
+  * System/device data acquisition & analysis
+  * E-discovery and legal procedures
+  * Mobile and IoT artifact extraction
+  * Expert witness readiness
+* **Platform goals**: scalable cybersecurity training accessible to universities and colleges ([SANS Institute][11], [intaforensics.com][12], [scientia.global][10]).
+* **Service offerings**: alongside training, they offer consultancy, data recovery, blockchain tracing, and incident response ([cyber-forensics.net][13]).
+* **Mixed reviews**: users praise the depth of training content, though some mention service inconsistencies ([Trustpilot][14]).
+
+**Ideal for:** Formal learners—students or faculty—seeking academically structured training with forensic plus legal frameworks, especially around IoT.
+
+Here’s an in-depth, well-referenced overview of **AboutDFIR.com** and **LinuxLEO.com**, two respected resources in the DFIR (digital forensics and incident response) space:
+
+---
+
+## AboutDFIR.com — The Definitive DFIR Compendium
+
+**AboutDFIR.com** serves as an extensive, community-driven hub curated by Devon Ackerman, a former FBI digital forensics specialist ([aboutdfir.com][1]). It’s a central compendium pointing to high-quality DFIR resources:
+
+### Key Offerings:
+
+* **Career & Certifications Guidance**: Helps DFIR aspirants navigate job roles (forensic examiner, analyst, incident responder) and certifications ([aboutdfir.com][2]).
+* **Training & Tools Directory**: Lists books, distributions (like Kali, CAINE), test-image sources, blogs, and newsletters ([aboutdfir.com][3], [aboutdfir.com][4], [aboutdfir.com][5]).
+* **Tool Testing Resources**: Aggregates links to forensic images for validated tool use and encourages community input ([aboutdfir.com][3]).
+* **Event and Workshop Listings**: Includes updates on conferences and bootcamps (e.g., Women in Forensic Computing Workshop, DFRWS) ([aboutdfir.com][6]).
+* **Curated Book Lists**: Covers practitioner-level books on incident response, mobile forensics, threat hunting ([aboutdfir.com][4]).
+
+### Who It’s For:
+
+DFIR.com is ideal for professionals and students looking for a one-stop resource library—whether you're planning a career move, seeking hands-on tools, or enhancing skills via certified learning. It’s not a training platform itself but expertly guides you to recognized, trustworthy resources.
+
+---
+
+## LinuxLEO.com — Linux for Forensic Examiners
+
+**LinuxLEO.com** is home to *The Law Enforcement and Forensic Examiner’s Introduction to Linux*—a comprehensive text by Barry J. Grundy aimed at beginner-to-advanced examiners ([linuxleo.com][7], [linuxleo.com][8]).
+
+### Contents and Capabilities:
+
+* **Foundational Linux Skills**: Explains device management, file systems, mounting, permissions, basic commands, shell usage ([linuxleo.com][8]).
+* **Live/Network Acquisition**: Guides on best practices for forensically sound evidence collection—covering tools like `dc3dd`, forensic mounting, chain of custody ([linuxleo.com][8]).
+* **File System & Carving Techniques**: Offers hands-on instruction for analyzing EXT2/3/4 file systems, carving with `photorec`, timeline creation using SleuthKit (`fls`, `icat`, etc.) ([linuxleo.com][8]).
+* **Automated & Manual Analysis**: Covers using `grep`, `xxd`, `blkls`, examining registry files, and scripting workflows ([linuxleo.com][8], [linuxleo.com][9]).
+* **Continuous Updates**: Regularly revised; recent versions introduced on-the-fly compression, network dd, expanded SleuthKit exercises, alternative imaging tools ([linuxleo.com][9]).
+
+### Who It’s For:
+
+Excellent for forensic practitioners desiring a Linux-centric, command-line–based toolkit. Great for hands-on learners who wish to master disk imaging, artifact carving, and analysis within Linux environments.
+
+### Recommendations:
+
+* Use **AboutDFIR.com** to **discover and vet** DFIR tools, courses, datasets, and reference materials.
+* Employ **LinuxLEO.com** if you want a **deep, narrative-style manual** to learn and perform disk-level forensic operations via Linux.
+* Combine both: guide your learning path through AboutDFIR.com, and use LinuxLEO.com as a working manual for practical exercises.
 
 ## Practical Snort Labs on Github and Real-World Configurations
 
@@ -87,16 +217,6 @@
 * **Snort 3 Lua Configuration Example**: Sample `snort.lua` configuration file for Snort 3.
   🔗 [https://github.com/snort3/snort3/blob/master/lua/snort.lua](https://github.com/snort3/snort3/blob/master/lua/snort.lua)([GitHub][9])
 
-[1]: https://github.com/martimy/clab_ids_snort?utm_source=chatgpt.com "martimy/clab_ids_snort: An IDS/IPS lab based on Snort - GitHub"
-[2]: https://github.com/bhavyagaur99/snort-ids-project?utm_source=chatgpt.com "bhavyagaur99/snort-ids-project: Learning to use snort IDS - GitHub"
-[3]: https://github.com/MaheshShukla1/Snort-IDS-Configuration-Rules-and-Examples?utm_source=chatgpt.com "MaheshShukla1/Snort-IDS-Configuration-Rules-and-Examples"
-[4]: https://github.com/cmaze001/Network-Intrusion-Detection-System-NIDS-Implementation-Lab?utm_source=chatgpt.com "Network-Intrusion-Detection-System-NIDS-Implementation-Lab"
-[5]: https://github.com/brayden031/SNORT-IDS-Project?utm_source=chatgpt.com "brayden031/SNORT-IDS-Project - GitHub"
-[6]: https://github.com/1gorsec/snort_home_lab?utm_source=chatgpt.com "These are the scripts I used in my Snort Home lab setup. - GitHub"
-[7]: https://github.com/PietroCavaliere/snort-rules?utm_source=chatgpt.com "PietroCavaliere/snort-rules: A Bash script to configure Snort ... - GitHub"
-[8]: https://github.com/thereisnotime/Snort-Default-Windows-Configuration?utm_source=chatgpt.com "thereisnotime/Snort-Default-Windows-Configuration - GitHub"
-[9]: https://github.com/snort3/snort3/blob/master/lua/snort.lua?utm_source=chatgpt.com "snort3/lua/snort.lua at master - GitHub"
-
 ---
 
 ## Autopsy Practice Labs on GitHub
@@ -157,17 +277,6 @@ This PDF lab, part of the "Ethical Hacking: A Hands-On Approach" series by Packt
 * Documenting findings in a professional report format([GitHub][6])
 
 It's an excellent starting point for individuals new to digital forensics.
-
----
-
-[1]: https://github.com/jardan-valentina/Digital-Forensics?utm_source=chatgpt.com "jardan-valentina/Digital-Forensics - Autopsy lab in Kali Linux - GitHub"
-[2]: https://github.com/oddin-forensic/autopsy-sample-case?utm_source=chatgpt.com "oddin-forensic/autopsy-sample-case - GitHub"
-[3]: https://github.com/wv8672/digital-forensics-labs?utm_source=chatgpt.com "wv8672/digital-forensics-labs: A series of Linux and ... - GitHub"
-[4]: https://github.com/Ryan-Sapone/Autopsy-Forensics/blob/main/Walkthrough.md?utm_source=chatgpt.com "Autopsy-Forensics/Walkthrough.md at main · Ryan-Sapone ... - GitHub"
-[5]: https://github.com/PacktPublishing/Ethical-Hacking-A-Hands-On-Approach-to-Ethical-Hacking/blob/master/Lab%20-%20Digital%20Forensics%20Using%20Autopsy%20Part%20I.pdf?utm_source=chatgpt.com "Lab - Digital Forensics Using Autopsy Part I.pdf - GitHub"
-[6]: https://github.com/sleuthkit/autopsy?utm_source=chatgpt.com "sleuthkit/autopsy - GitHub"
-
----
 
 ## Wireshark Practice Labs on GitHub
 
@@ -253,19 +362,6 @@ This repository provides:([GitHub][8])
 
 It's useful for those interested in combining Nmap scanning with Wireshark analysis.([GitHub][8])
 
----
-
-[1]: https://github.com/terzinodipaese/Wireshark-labs?utm_source=chatgpt.com "Wireshark-labs - GitHub"
-[2]: https://github.com/0xrajneesh/Wireshark-Home-Lab?utm_source=chatgpt.com "0xrajneesh/Wireshark-Home-Lab - GitHub"
-[3]: https://github.com/w4sp-book/w4sp-lab?utm_source=chatgpt.com "w4sp-book/w4sp-lab: Lab environment for the Wireshark for ... - GitHub"
-[4]: https://github.com/0xrajneesh/Wireshark-Projects-for-beginners?utm_source=chatgpt.com "0xrajneesh/Wireshark-Projects-for-beginners - GitHub"
-[5]: https://github.com/DNcrypter/Wireshark-lab-Network-Traffic-Analysis?utm_source=chatgpt.com "DNcrypter/Wireshark-lab-Network-Traffic-Analysis - GitHub"
-[6]: https://github.com/MohammedAl13/Wireshark-Hacking-Lab?utm_source=chatgpt.com "MohammedAl13/Wireshark-Hacking-Lab - GitHub"
-[7]: https://github.com/Kunalgarg2100/Wireshark-Lab?utm_source=chatgpt.com "Kunalgarg2100/Wireshark-Lab - GitHub"
-[8]: https://github.com/Ryan-Sapone/Nmap-and-Wireshark-Lab?utm_source=chatgpt.com "Ryan-Sapone/Nmap-and-Wireshark-Lab - GitHub"
-
----
-
 ## Volatility Practice Labs on GitHub
 
 ### 1. [MemLabs – CTF-Style Memory Forensics Challenges](https://github.com/stuxnet999/MemLabs)
@@ -287,15 +383,6 @@ This repository offers interactive digital forensics labs, including those utili
 ### 5. [VolMemLyzer – Volatile Memory Analyzer](https://github.com/ahlashkari/VolMemLyzer)
 
 VolMemLyzer is a tool built on top of the Volatility 3 framework, capable of extracting over 250 features from memory snapshots. It aims to speed up analysis and enable deeper explorations into memory forensics. This tool is suitable for researchers and practitioners looking to enhance their analysis capabilities.([GitHub][5])
-
----
-
-[1]: https://github.com/stuxnet999/MemLabs?utm_source=chatgpt.com "stuxnet999/MemLabs: Educational, CTF-styled labs for ... - GitHub"
-[2]: https://github.com/Divinemonk/memory_forensics_with_volatility?utm_source=chatgpt.com "Memory Forensics with Volatility - GitHub"
-[3]: https://github.com/0xrajneesh/Memory-Forensics-with-Volatility-on-Linux?utm_source=chatgpt.com "0xrajneesh/Memory-Forensics-with-Volatility-on-Linux - GitHub"
-[4]: https://github.com/frankwxu/digital-forensics-lab?utm_source=chatgpt.com "Free hands-on digital forensics labs for students and faculty - GitHub"
-[5]: https://github.com/ahlashkari/VolMemLyzer?utm_source=chatgpt.com "VolMemLyzer (Volatile Memory Analyzer) - GitHub"
-
 
 ---
 
@@ -357,17 +444,6 @@ DFIR LABS provides a collection of challenges aimed at practicing concepts in di
 * Investigating Windows-based incidents.
 * Applying various forensic tools, potentially including FTK, in simulated scenarios.
 
----
-
-[1]: https://github.com/clingeric/forensic-toolkit?utm_source=chatgpt.com "clingeric/forensic-toolkit - GitHub"
-[2]: https://github.com/aivtic/Phase-1-Cybersecurity-Ethical-Hacking-Internship-Labs/blob/main/INT313/lab3.md?utm_source=chatgpt.com "Phase-1-Cybersecurity-Ethical-Hacking-Internship-Labs ... - GitHub"
-[3]: https://github.com/jesusgavancho/TryHackMe_and_HackTheBox/blob/master/Digital%20Forensics%20Case%20B4DM755.md?utm_source=chatgpt.com "Digital Forensics Case B4DM755.md - GitHub"
-[4]: https://github.com/JohnSomanza/D431-Digital-Forensics-Lab?utm_source=chatgpt.com "JohnSomanza/D431-Digital-Forensics-Lab - GitHub"
-[5]: https://github.com/frankwxu/digital-forensics-lab?utm_source=chatgpt.com "Free hands-on digital forensics labs for students and faculty - GitHub"
-[6]: https://github.com/Azr43lKn1ght/DFIR-LABS?utm_source=chatgpt.com "DFIR LABS - A compilation of challenges that aims to ... - GitHub"
-
----
-
 ## EnCase Practice Labs and Resources on GitHub
 
 ### 1. [Digital Forensics Lab by frankwxu](https://github.com/frankwxu/digital-forensics-lab)
@@ -414,15 +490,4 @@ This repository contains a practical assignment involving:
 * Supplementary materials such as the Autopsy case file and a Unicode tutorial.([GitHub][3])
 
 It's designed to provide hands-on experience in analyzing EnCase images and interpreting encoded data. ([GitHub][4])
-
----
-
-[1]: https://www.opentext.com/products/forensic?utm_source=chatgpt.com "Digital Forensics Software - OpenText"
-[2]: https://github.com/frankwxu/digital-forensics-lab?utm_source=chatgpt.com "Free hands-on digital forensics labs for students and faculty - GitHub"
-[3]: https://github.com/Wba-01/Week-21-Homework-Digital-Forensics?utm_source=chatgpt.com "Wba-01/Week-21-Homework-Digital-Forensics - GitHub"
-[4]: https://github.com/sajinshivdas/Digital-Forensics-Lab?utm_source=chatgpt.com "sajinshivdas/Digital-Forensics-Lab - GitHub"
-[5]: https://cloudyforensics.medium.com/cloud-forensic-tools-7c744817226e?utm_source=chatgpt.com "Cloud Forensic Tools"
-[6]: https://github.com/wv8672/digital-forensics-labs?utm_source=chatgpt.com "wv8672/digital-forensics-labs: A series of Linux and ... - GitHub"
-[7]: https://github.com/lancemueller/EnCase-EnScripts?utm_source=chatgpt.com "lancemueller/EnCase-EnScripts: General repository for ... - GitHub"
-
 
