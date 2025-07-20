@@ -924,22 +924,6 @@ Splunk can be integrated with Snort to collect, index, and analyze alert data, p
 
 By understanding Snort's alert formats and leveraging tools like Barnyard2, Snorby, and Splunk, you can effectively monitor, analyze, and respond to network security events.
 
-[1]: https://hackertarget.com/snort-tutorial-practical-examples/?utm_source=chatgpt.com "Snort Tutorial and Practical Examples - HackerTarget.com"
-[2]: https://www.splunk.com/en_us/blog/learn/snort-rules.html?utm_source=chatgpt.com "Snort Rules 101: Examples & Use Cases for Snort Network Defense"
-[3]: https://cyvatar.ai/write-configure-snort-rules/?utm_source=chatgpt.com "Writing Snort Rules with Examples and Cheat Sheet - Cyvatar"
-[4]: https://docs.snort.org/rules/?utm_source=chatgpt.com "The Basics - Snort 3 Rule Writing Guide"
-[5]: https://manual-snort-org.s3-website-us-east-1.amazonaws.com/node21.html?utm_source=chatgpt.com "2.6 Output Modules - Snort Manual"
-[6]: https://www.cliffsnotes.com/study-notes/23197454?utm_source=chatgpt.com "Set Up Barnyard2 and BASE for Snort: Step-by-Step Guide"
-[7]: https://serverfault.com/questions/405400/snort-barnyard2-logging?utm_source=chatgpt.com "Snort/Barnyard2 Logging - Server Fault"
-[8]: https://github.com/firnsy/barnyard2?utm_source=chatgpt.com "Barnyard2 is a dedicated spooler for Snort's unified2 binary output ..."
-[9]: https://forensics.wiki/barnyard2/?utm_source=chatgpt.com "Barnyard2 - - Forensics Wiki"
-[10]: https://allcloud.io/blog/how-to-install-snorby/?utm_source=chatgpt.com "How to install snorby - AllCloud"
-[11]: https://www.honorsociety.org/articles/using-barnyard2-snort?utm_source=chatgpt.com "Using Barnyard2 in Snort | Honor Society"
-[12]: https://splunkbase.splunk.com/app/5488?utm_source=chatgpt.com "Snort Alert for Splunk - Splunkbase"
-[13]: https://splunkbase.splunk.com/app/4633?utm_source=chatgpt.com "Snort 3 JSON Alerts - Splunkbase"
-[14]: https://medium.com/%40InfoSecDion/detection-and-monitoring-w-splunk-snort-c93b5dd01229?utm_source=chatgpt.com "Detection and Monitoring w/Splunk & Snort | by Dion Alexander"
-
-
 ## 7. Performance Tuning  
 
 ## Optimizing Snort for High-Traffic Environments
@@ -1172,15 +1156,6 @@ Snort preprocessors inspect and manipulate packets before rule evaluation. While
 
 By understanding common errors, employing effective debugging techniques, and properly analyzing logs, you can maintain and troubleshoot Snort 2.x and Snort 3 deployments efficiently.
 
-[1]: https://stackoverflow.com/questions/48696590/windows-snort-error-error-c-snort-etc-snort-conf0-failed-to-parse-the-ip-ad?utm_source=chatgpt.com "security - Windows Snort Error--ERROR: C:\Snort\etc\snort.conf(0 ..."
-[2]: https://hackertarget.com/snort-tutorial-practical-examples/?utm_source=chatgpt.com "Snort Tutorial and Practical Examples - HackerTarget.com"
-[3]: https://www.linuxquestions.org/questions/linux-security-4/snort-error-141087/?utm_source=chatgpt.com "snort error - LinuxQuestions.org"
-[4]: https://snort.org/downloads/snortplus/snort_manual.pdf?utm_source=chatgpt.com "Snort 3 User Manual"
-[5]: https://github.com/snort3/snort3/issues?utm_source=chatgpt.com "Issues · snort3/snort3 - GitHub"
-[6]: https://stackoverflow.com/questions/47920387/how-to-enable-debug-logs-in-snort-ids?utm_source=chatgpt.com "How to enable DEBUG logs in SNORT IDS? - Stack Overflow"
-[7]: https://security.stackexchange.com/questions/60609/what-shoud-i-do-for-solving-this-problem-problem-is-about-snort?utm_source=chatgpt.com "What shoud I do for solving this problem ? Problem is about SNORT"
-[8]: https://docs.nxlog.co/integrate/snort.html?utm_source=chatgpt.com "Snort - NXLog Platform Documentation"
-
 
 ## 9. Advanced Topics  
 
@@ -1261,15 +1236,6 @@ This command specifies the configuration file, rule set, interfaces, and DAQ mod
 ---
 
 By deploying Snort in inline mode and integrating it with firewalls and SIEM tools, organizations can establish a robust intrusion prevention system that not only detects but also actively mitigates threats in real-time.
-
-
-[1]: https://snort-org-site.s3.amazonaws.com/production/document_files/files/000/000/013/original/Snort_IPS_using_DAQ_AFPacket.pdf?utm_source=chatgpt.com "[PDF] Snort IPS using DAQ AFPacket - AWS"
-[2]: https://www.cisco.com/c/en/us/td/docs/security/secure-firewall/management-center/snort/720/snort3-configuration-guide-v72/getting-started-intrusion.html?utm_source=chatgpt.com "Cisco Secure Firewall Management Center Snort 3 Configuration ..."
-[3]: https://www.reddit.com/r/PFSENSE/comments/iwyy2z/snort_inline_mode_and_hardware_offloading_issues/?utm_source=chatgpt.com "Snort Inline Mode and Hardware offloading issues : r/PFSENSE"
-[4]: https://www.cisco.com/c/en/us/td/docs/security/firepower/70/snort3/config-guide/snort3-configuration-guide-v70/overview.html?utm_source=chatgpt.com "Firepower Management Center Snort 3 Configuration Guide ... - Cisco"
-[5]: https://www.linkedin.com/advice/3/how-can-you-integrate-snort-ids-other-network-p46yc?utm_source=chatgpt.com "How can you integrate Snort IDS with other network monitoring tools?"
-[6]: https://pandorafms.com/blog/what-is-snort/?utm_source=chatgpt.com "Snort and SIEM: Advanced and Centralized Threat Detection"
- 
 
 ## 10. Conclusion  
   

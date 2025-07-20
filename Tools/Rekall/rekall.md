@@ -97,11 +97,6 @@ For more detailed information and advanced usage, refer to the official Rekall d
 
 ---
 
-[1]: https://rekall.readthedocs.io/en/gh-pages/Tools/?utm_source=chatgpt.com "Image file format — Rekall gh-pages documentation"
-[2]: https://rekall.readthedocs.io/_/downloads/en/latest/pdf/?utm_source=chatgpt.com "[PDF] Rekall Forensics Documentation - Read the Docs"
-[3]: https://rekall.readthedocs.io/en/gh-pages/Tools/pmem.html?utm_source=chatgpt.com "WinPmem — Rekall gh-pages documentation"
-[4]: https://rekall.readthedocs.io/?utm_source=chatgpt.com "Welcome to Rekall Forensics's documentation! — Rekall Forensics ..."
-
 ## 2. Memory Forensics Basics  
 
 #### What is Memory Forensics?
@@ -163,18 +158,6 @@ The PMEM tools can output memory images in these formats, allowing flexibility b
 For more detailed information and advanced usage, refer to the official Rekall documentation: ([rekall.readthedocs.io][10])
 
 ---
-
-[1]: https://nordvpn.com/cybersecurity/glossary/memory-forensics/?utm_source=chatgpt.com "Memory forensics definition – Glossary - NordVPN"
-[2]: https://hadess.io/memory-forensic-a-comprehensive-technical-guide/?utm_source=chatgpt.com "Memory Forensic: A Comprehensive Technical Guide - - HADESS"
-[3]: https://levelblue.com/blogs/security-essentials/ram-dump-understanding-its-importance-and-the-process?utm_source=chatgpt.com "RAM dump: Understanding its importance and the process - LevelBlue"
-[4]: https://www.ituonline.com/tech-definitions/what-is-memory-forensics/?utm_source=chatgpt.com "What Is Memory Forensics? - ITU Online IT Training"
-[5]: https://www.digitalguardian.com/resources/knowledge-base/what-are-memory-forensics-definition-memory-forensics?utm_source=chatgpt.com "What Are Memory Forensics? - Digital Guardian"
-[6]: https://www.salvationdata.com/knowledge/memory-forensics/?utm_source=chatgpt.com "Top 2025 Memory Forensics Tools for Incident Response"
-[7]: https://www.adfsolutions.com/adf-blog/memory-forensics-101-the-basics-you-need-to-know-for-effective-digital-forensics-investigations?srsltid=AfmBOorEnn5d_EWExTDl5RiN8nzxzQY44LrgiXRMeX1GJehxC-1HSfG6&utm_source=chatgpt.com "Memory Forensics: Effective Digital Forensics Investigations Basics"
-[8]: https://intezer.com/blog/memory-analysis-forensic-tools/?utm_source=chatgpt.com "Memory Analysis 101: Memory Threats and Forensic Tools - Intezer"
-[9]: https://medium.com/%40mohit.r.phy/around-memory-forensics-in-80-days-part-6-total-rekall-8dd99915aeb9?utm_source=chatgpt.com "Around Memory forensics in 80 days Part 6 — Total Rekall - Medium"
-[10]: https://rekall.readthedocs.io/en/gh-pages/Tools/?utm_source=chatgpt.com "Image file format — Rekall gh-pages documentation"
-
 
 ## 3. Rekall Command-Line Interface (CLI)  
 
@@ -250,10 +233,6 @@ For more detailed information and advanced usage, refer to the official Rekall d
 
 ---
 
-[1]: https://medium.com/%40findingtrouble/learn-memory-forensics-06-memory-analysis-tools-ff24f19d7582?utm_source=chatgpt.com "Learn Memory Forensics 06 — Memory Analysis Tools - Medium"
-[2]: https://holdmybeersecurity.com/2017/07/29/rekall-memory-analysis-framework-for-windows-linux-and-mac-osx/?utm_source=chatgpt.com "Rekall memory analysis framework for Windows, Linux, and Mac OSX"
-
-
 ## 4. Memory Acquisition  
 ### Tools for Acquiring Memory Dumps
 
@@ -301,15 +280,6 @@ By adhering to these practices, forensic analysts can ensure that memory dumps a
 
 ---
 
-[1]: https://github.com/Velocidex/WinPmem?utm_source=chatgpt.com "Velocidex/WinPmem: The multi-platform memory acquisition tool."
-[2]: https://github.com/Velocidex/Linpmem?utm_source=chatgpt.com "Linpmem -- a physical memory acquisition tool for Linux - GitHub"
-[3]: https://paraben.com/memory-forensics-tools-overview/?utm_source=chatgpt.com "Memory Forensics Tools Overview - Paraben Corporation"
-[4]: https://rekall.readthedocs.io/en/gh-pages/Tools/?utm_source=chatgpt.com "Image file format — Rekall gh-pages documentation"
-[5]: https://levelblue.com/blogs/security-essentials/ram-dump-understanding-its-importance-and-the-process?utm_source=chatgpt.com "RAM dump: Understanding its importance and the process - LevelBlue"
-[6]: https://www.examcollection.com/blog/forensic-examination-of-ram-methods-and-best-practices/?utm_source=chatgpt.com "Forensic Examination of RAM: Methods and Best Practices"
-[7]: https://d1.awsstatic.com/events/aws-reinforce-2022/TDR401_Instance-memory-acquisition-techniques-for-effective-incident-response.pdf?utm_source=chatgpt.com "[PDF] Instance memory acquisition techniques for effective incident response"
-[8]: https://security.stackexchange.com/questions/140104/integrity-of-live-forensic-evidences-e-g-memory-dump?utm_source=chatgpt.com "Integrity of LIVE forensic evidences (e.g. memory dump)"
-[9]: https://www.linkedin.com/advice/3/how-can-you-analyze-memory-dumps-forensically?utm_source=chatgpt.com "How can you analyze memory dumps forensically? - LinkedIn"
 
 ## 5. Analyzing Memory with Rekall  
 
@@ -428,14 +398,6 @@ By leveraging these plugins and techniques, Rekall provides a comprehensive tool
 
 ---
 
-[1]: https://forwarddefense.com/media/attachments/2021/05/15/memory-analysis-with-volatlity-analyst-reference-20200131.pdf?utm_source=chatgpt.com "[PDF] Windows Memory Analysis with Volatility - Forward Defense"
-[2]: https://www.cybertriage.com/blog/training/how-to-detect-running-malware-intro-to-incident-response-triage-part-7/?utm_source=chatgpt.com "How to Detect Running Malware - Intro to Incident Response Triage ..."
-[3]: https://github.com/google/rekall/blob/master/rekall-core/rekall/plugins/windows/malware/psxview.py?utm_source=chatgpt.com "rekall/rekall-core/rekall/plugins/windows/malware/psxview.py at ..."
-[4]: https://github.com/google/rekall/blob/master/rekall-core/rekall/plugins/windows/malware/malfind.py?utm_source=chatgpt.com "malfind.py - google/rekall - GitHub"
-[5]: https://www.linkedin.com/advice/1/how-do-you-perform-code-injection-detection-analysis?utm_source=chatgpt.com "Detecting and Analyzing Code Injection - Memory Forensics - LinkedIn"
-[6]: https://i.blackhat.com/eu-19/Thursday/eu-19-Block-Detecting-Un-Intentionally-Hidden-Injected-Code-By-Examining-Page-Table-Entries.pdf?utm_source=chatgpt.com "[PDF] Detecting (un)intentionally hidden injected Code by examining Page ..."
-
-
 ## 6. Advanced Analysis Techniques  
 
 ## Timeline Analysis with Rekall
@@ -534,8 +496,7 @@ By leveraging these advanced features of Rekall, forensic analysts can perform i
 
 ---
 
-[1]: https://medium.com/%40findingtrouble/learn-memory-forensics-06-memory-analysis-tools-ff24f19d7582?utm_source=chatgpt.com "Learn Memory Forensics 06 — Memory Analysis Tools - Medium"
-  
+ 
 
 ## 7. Automating Analysis with Rekall  
 
@@ -651,7 +612,7 @@ By leveraging custom plugins, scripting capabilities, and flexible export option
 
 ---
 
-[1]: https://rekall.readthedocs.io/en/latest/plugins.html?utm_source=chatgpt.com "Plugin Reference — Rekall Forensics 1.7.2 documentation"
+
 
 
 ## 8. Case Studies and Practical Examples  
@@ -802,8 +763,7 @@ Rekall aids in identifying tactics used for lateral movement and persistence:
 
 By analyzing these artifacts, analysts can uncover methods attackers use to move within a network and maintain long-term access. ([arxiv.org][2])
 
-[1]: https://intezer.com/blog/memory-analysis-forensic-tools/?utm_source=chatgpt.com "Memory Analysis 101: Memory Threats and Forensic Tools - Intezer"
-[2]: https://arxiv.org/html/2411.10279v1?utm_source=chatgpt.com "Lateral Movement Detection via Time-aware Subgraph ... - arXiv"
+
 
 
 ## 9. Troubleshooting and Best Practices  
@@ -900,13 +860,6 @@ Engage with the Rekall user community through forums and mailing lists to share 
 
 Participate in workshops, webinars, and training sessions focused on memory forensics and Rekall to enhance your skills and stay current with best practices.
 
-[1]: https://isc.sans.edu/diary/24454?utm_source=chatgpt.com "Live memory analysis using Rekall - SANS Internet Storm Center"
-[2]: https://groups.google.com/g/rekall-discuss/c/ukJoVpAeDXQ?utm_source=chatgpt.com "\"Rekall Memory Forensics (Console)\" Usage Problems"
-[3]: https://www.reddit.com/r/digitalminimalism/comments/1h5z7h6/how_do_you_balance_staying_informed_without_being/?utm_source=chatgpt.com "How do you balance staying informed without being consumed by ..."
-[4]: https://cyrin.atcorp.com/course/info.php?id=32&utm_source=chatgpt.com "Summary of Introduction to Memory Analysis with Rekall - CYRIN"
-[5]: https://github.com/google/rekall?utm_source=chatgpt.com "google/rekall: Rekall Memory Forensic Framework - GitHub"
-  
-
 ## 10. Resources and Further Learning  
 
 ## Official Rekall Documentation
@@ -957,11 +910,6 @@ To deepen your knowledge of memory forensics and Rekall, consider the following 
 
 These resources can help you build a solid foundation in memory forensics and effectively utilize Rekall in your investigations.
 
-[1]: https://rekall.readthedocs.io/?utm_source=chatgpt.com "Welcome to Rekall Forensics's documentation! — Rekall Forensics ..."
-[2]: https://www.amazon.com/Art-Memory-Forensics-Detecting-Paperback/dp/B00RI5ZKCI?utm_source=chatgpt.com "The Art of Memory Forensics: Detecting Malware and Threats in ..."
-[3]: https://www.packtpub.com/en-us/product/practical-memory-forensics-9781801070331?srsltid=AfmBOoqQMKNKX9QEQgEFXLsnM6uWpXjl-lXDxVYOsCji5U2FjPeVAS-E&type=print&utm_source=chatgpt.com "Practical Memory Forensics | Security | Paperback - Packt"
-[4]: https://www.reddit.com/r/computerforensics/comments/1c68eb2/any_recommendations_for_textbooks_i_can_read_to/?utm_source=chatgpt.com "Any recommendations for textbooks I can read to get an introduction ..."
-
 
 ## 11. Conclusion  
 
@@ -1006,9 +954,3 @@ Embarking on the path to mastering memory forensics involves continuous learning
 * **Rekall GitHub Repository**: Stay updated with the latest releases and contribute to discussions.&#x20;
 
 * **Rekall-Discuss Google Group**: Join the mailing list to connect with other users and share insights. ([github.com][5])
-
-[1]: https://github.com/pinesol93/MemoryForensicSamples?utm_source=chatgpt.com "pinesol93/MemoryForensicSamples: Links to various memory samples"
-[2]: https://memoryforensic.com/volatility-foundations-memory-samples/?utm_source=chatgpt.com "Updated Volatility Foundation's Memory Samples"
-[3]: https://www.adfsolutions.com/adf-blog/memory-forensics-101-the-basics-you-need-to-know-for-effective-digital-forensics-investigations?srsltid=AfmBOooD9Vnh9FeHO1yyeTb-K8yYY-UkhKKBYuXpmM0r3LIThJ1ZUPeH&utm_source=chatgpt.com "Memory Forensics: Effective Digital Forensics Investigations Basics"
-[4]: https://www.securitynik.com/2016/11/beginning-memory-forensics-rekall.html?utm_source=chatgpt.com "Beginning Memory Forensics - Rekall - Stuxnet - Learning by practicing"
-[5]: https://github.com/google/rekall?utm_source=chatgpt.com "google/rekall: Rekall Memory Forensic Framework - GitHub"
