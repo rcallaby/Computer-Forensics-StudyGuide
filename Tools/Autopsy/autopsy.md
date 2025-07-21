@@ -98,24 +98,9 @@ For optimal performance, Autopsy has the following system requirements:([Infosec
 
 For a visual walkthrough of the installation process, you may find the following video tutorial helpful:
 
-[Installing Autopsy 4.21 on Windows 10](https://www.youtube.com/watch?v=d_jl8bnlwEI&utm_source=chatgpt.com)
+[Installing Autopsy 4.21 on Windows 10](https://www.youtube.com/watch?v=d_jl8bnlwEI)
 
-[1]: https://www.autopsy.com/?utm_source=chatgpt.com "Autopsy - Digital Forensics"
-[2]: https://en.wikipedia.org/wiki/The_Sleuth_Kit?utm_source=chatgpt.com "The Sleuth Kit"
-[3]: https://en.wikipedia.org/wiki/Autopsy_%28software%29?utm_source=chatgpt.com "Autopsy (software)"
-[4]: https://www.ccslearningacademy.com/what-is-autopsy-in-cybersecurity/?utm_source=chatgpt.com "What is Autopsy in Cyber Security? Features, Benefits & Use Cases"
-[5]: https://cybervie.com/blog/introduction-to-autopsy-an-open-source-digital-forensics-tool/?utm_source=chatgpt.com "Introduction To Autopsy | An Open-Source Digital Forensics Tool"
-[6]: https://www.autopsy.com/wp-content/uploads/sites/8/2016/02/Autopsy-4.0-EN-optimized.pdf?utm_source=chatgpt.com "[PDF] KEY FEATURES Free and Professional Grade - Autopsy"
-[7]: https://www.infosecinstitute.com/resources/digital-forensics/autopsy-computer-forensics-platform-overview/?utm_source=chatgpt.com "Autopsy Computer Forensics Platform Overview - Infosec"
-[8]: https://eforensicsmag.com/autopsy-the-digital-forensics-toolkit/?utm_source=chatgpt.com "Autopsy: The Digital Forensics Toolkit - eForensics"
-[9]: https://medium.com/%40jcm3/autopsy-tryhackme-walkthrough-f6ac929fd4ca?utm_source=chatgpt.com "Autopsy | TryHackMe — Walkthrough | by jcm3 - Medium"
-[10]: https://www.autopsy.com/download/?utm_source=chatgpt.com "Download - Autopsy"
-[11]: https://sleuthkit.org/autopsy/docs/user-docs/4.5.0/installation_page.html?utm_source=chatgpt.com "Autopsy User Documentation: Installing Autopsy - The Sleuth Kit"
-[12]: https://slo-sleuth.github.io/tools/InstallingAutopsyOnMacOS.html?utm_source=chatgpt.com "Installing Autopsy on MacOS Catalina"
-[13]: https://threatintelligencelab.com/tools/introduction-to-disk-analysis-using-autopsy/?utm_source=chatgpt.com "Introduction to Disk Analysis Using Autopsy - Threat Intelligence Lab"
-[14]: https://arcpointforensics.medium.com/installing-autopsy-on-macos-big-sur-1e9cff8fa5ef?utm_source=chatgpt.com "Installing Autopsy on macOS Big Sur | by ArcPoint Forensics | Medium"
-[15]: https://sleuthkit.org/autopsy/docs/user-docs/4.16.0/installation_page.html?utm_source=chatgpt.com "Autopsy User Documentation: Installing Autopsy - The Sleuth Kit"
- 
+
 
 ## Getting Started with Autopsy  
 
@@ -194,16 +179,6 @@ Once the case is set up, you can manage and analyze various data sources:([SANS 
 4. **Generate Reports**: Autopsy can create reports in various formats (e.g., HTML, CSV) summarizing the findings of your analysis.([Wikipedia][7])
 
 By effectively managing case files and utilizing Autopsy's features, you can conduct thorough and organized digital forensic investigations.&#x20;
-
-
-[1]: https://sleuthkit.org/autopsy/docs/user-docs/4.19.3/uilayout_page.html?utm_source=chatgpt.com "Autopsy User Documentation: UI Layout - The Sleuth Kit"
-[2]: https://juliakeffer.files.wordpress.com/2013/06/autopsy_user_guide.pdf?utm_source=chatgpt.com "[PDF] Autopsy Forensic Browser User Guide"
-[3]: https://www.youtube.com/watch?v=F09HfLYVGgg&utm_source=chatgpt.com "DFS101: 8.2 How to start a new case in Autopsy 4 - YouTube"
-[4]: https://www.hackingarticles.in/comprehensive-guide-on-autopsy-tool-windows/?utm_source=chatgpt.com "Comprehensive Guide on Autopsy Tool (Windows) - Hacking Articles"
-[5]: https://sleuthkit.org/autopsy/docs/user-docs/4.5.0/cases_page.html?utm_source=chatgpt.com "Autopsy User Documentation: Cases - The Sleuth Kit"
-[6]: https://www.sans.org/blog/a-step-by-step-introduction-to-using-the-autopsy-forensic-browser/?utm_source=chatgpt.com "A Step-by-Step introduction to using the AUTOPSY Forensic Browser"
-[7]: https://en.wikipedia.org/wiki/Autopsy_%28software%29?utm_source=chatgpt.com "Autopsy (software)"
- 
 
 ## Data Ingestion  
 
@@ -309,16 +284,6 @@ Some commonly used ingest modules include:
 * **EXIF Parser**: Extracts metadata from image files, such as creation date and GPS coordinates.
 
 *Source: [GeeksforGeeks: Analysis of Data Source Using Autopsy](https://www.geeksforgeeks.org/analysis-of-data-source-using-autopsy/)*([GeeksforGeeks][9])
-
-[1]: https://sleuthkit.org/autopsy/docs/user-docs/4.5.0/ds_page.html?utm_source=chatgpt.com "Autopsy User Documentation: Data Sources - The Sleuth Kit"
-[2]: https://www.minitool.com/news/how-to-use-autopsy-to-recover-deleted-files.html?utm_source=chatgpt.com "How to Use Autopsy to Recover Deleted Files? Here's a Guide"
-[3]: https://www.linkedin.com/learning/learning-autopsy-for-digital-forensics/what-data-sources-are-allowed?utm_source=chatgpt.com "What data sources are allowed? - Autopsy Video Tutorial - LinkedIn"
-[4]: https://medium.com/%40enyel.salas84/tryhackme-autopsy-walkthrough-598bbaabe664?utm_source=chatgpt.com "TryHackMe: Autopsy - Medium"
-[5]: https://sleuthkit.org/autopsy/docs/user-docs/3.1/ingest_page.html?utm_source=chatgpt.com "Autopsy User Documentation: Ingest Modules - The Sleuth Kit"
-[6]: https://www.geeksforgeeks.org/techtips/analysis-of-data-source-using-autopsy/?utm_source=chatgpt.com "Analysis of Data Source Using Autopsy | GeeksforGeeks"
-[7]: https://sleuthkit.org/autopsy/docs/user-docs/4.5.0/ingest_page.html?utm_source=chatgpt.com "Autopsy User Documentation: Ingest Modules - The Sleuth Kit"
-[8]: https://apscnlan.k12.ar.us/downloads/Training%20Documents/Cybersecurity/Adv%20Threat%20Hunting/Autopsy.pdf?utm_source=chatgpt.com "[PDF] autopsy - APSCN LAN Support (new)"
-[9]: https://www.geeksforgeeks.org/analysis-of-data-source-using-autopsy/?utm_source=chatgpt.com "Analysis of Data Source Using Autopsy | GeeksforGeeks"
 
 
 ## Analyzing Data  
@@ -499,27 +464,6 @@ These artifacts help in understanding system configurations and user behaviors.&
 For a visual demonstration of these features in Autopsy, you may find the following video tutorial helpful:
 
 [Data Artifacts, Analysis Results and Reporting in Autopsy 4.19+](https://www.youtube.com/watch?v=5SHB4HwkX28)
-
-[1]: https://eforensicsmag.com/autopsy-the-digital-forensics-toolkit/?utm_source=chatgpt.com "Autopsy: The Digital Forensics Toolkit - eForensics"
-[2]: https://www.sleuthkit.org/autopsy/timeline.php?utm_source=chatgpt.com "Autopsy: Timeline Analysis - The Sleuth Kit"
-[3]: https://snynr.medium.com/quick-guide-to-windows-registry-hives-5b6b1295bd47?utm_source=chatgpt.com "Quick Guide to Windows Registry Hives | by Saniye Nur"
-[4]: https://www.youtube.com/watch?v=4lDmb-jRp5k&utm_source=chatgpt.com "[How To] Autopsy 4: Exporting file metadata and Bodyfile creation"
-[5]: https://www.coursehero.com/file/133146035/Lab-06-Keyword-Search-and-Analysispdf/?utm_source=chatgpt.com "Lab 06 - Keyword Search and Analysis.pdf - FORENSICS V2 LAB..."
-[6]: https://www.autopsy.com/apache-solr-driven-keyword-searching-in-autopsy-3/?utm_source=chatgpt.com "Apache Solr Driven Keyword Searching in Autopsy"
-[7]: https://juliakeffer.files.wordpress.com/2013/06/autopsy_user_guide.pdf?utm_source=chatgpt.com "[PDF] Autopsy Forensic Browser User Guide"
-[8]: https://sleuthkit.org/autopsy/docs/user-docs/3.1/timeline_page.html?utm_source=chatgpt.com "Autopsy User Documentation: Timeline - The Sleuth Kit"
-[9]: https://wiki.zacheller.dev/digital-forensics/autopsy-software?utm_source=chatgpt.com "Autopsy - open-source digital forensics platform - SecWiki"
-[10]: https://dfir.science/2020/11/Downloading-and-adding-NSRL-hash-sets-to-Autopsy.html?utm_source=chatgpt.com "Downloading and adding NSRL hash sets to Autopsy - DFIR Science"
-[11]: https://www.youtube.com/watch?v=AMmuJkSEBIs&utm_source=chatgpt.com "6.5 Lab L60, Adding known (NSRL) and notable hash sets in Autopsy"
-[12]: https://www.linkedin.com/pulse/what-autopsy-comprehensive-guide-crawsec-xnsic?utm_source=chatgpt.com "What is Autopsy? A Comprehensive Guide - LinkedIn"
-[13]: https://sleuthkit.org/autopsy/docs/user-docs/3.1/hash_db_page.html?utm_source=chatgpt.com "Autopsy User Documentation: Hash Database Lookup Module"
-[14]: https://www.labmanager.com/s-t-is-enhancing-the-autopsy-digital-forensics-tool-5632?utm_source=chatgpt.com "S&T is Enhancing the Autopsy Digital Forensics Tool | Lab Manager"
-[15]: https://www.sleuthkit.org/autopsy/web_artifacts.php?utm_source=chatgpt.com "Autopsy: Web Artifacts - The Sleuth Kit"
-[16]: https://link.springer.com/article/10.1007/s42979-025-03921-6?utm_source=chatgpt.com "Advancing Web Browser Forensics: Critical Evaluation of Emerging ..."
-[17]: https://carloalbertoscola.it/2020/security/digital-forensic-made-easy-autopsy-sleuth/?utm_source=chatgpt.com "Autopsy - A Digital Forensic Lab - Carlo Alberto Scola"
-[18]: https://medium.com/%40dziyaaa/registry-forensic-analysis-317192c9cf59?utm_source=chatgpt.com "Registry Forensic Analysis - Medium"
-[19]: https://www.cliffsnotes.com/study-notes/16190273?utm_source=chatgpt.com "Windows Forensics: Registry Analysis & Artifact Collection"
-
 
 ## Reporting  
 
@@ -711,17 +655,6 @@ For example, a script named "PerfAutopsy" has been developed to automate perform
 
 By leveraging scripting, investigators can streamline their workflows, reduce manual effort, and ensure consistency across analyses.
 
-[1]: https://sleuthkit.org/autopsy/docs/user-docs/3.1/module_install_page.html?utm_source=chatgpt.com "Autopsy User Documentation: Installing 3rd-Party Modules"
-[2]: https://pradyumnajoshi.blogspot.com/2015/06/installation-of-autopsy-modules.html?utm_source=chatgpt.com "Installation of Autopsy third party modules - Information Security Diary"
-[3]: https://www.reddit.com/r/computerforensics/comments/lxqur3/how_can_i_download_and_use_autopsy_plugins_from/?utm_source=chatgpt.com "How Can I Download and Use Autopsy Plug-Ins From GitHub?"
-[4]: https://sleuthkit.discourse.group/t/how-to-install-python-ingest-modules/2604?utm_source=chatgpt.com "How to install python ingest modules - Autopsy and The Sleuth Kit"
-[5]: https://www.autopsy.com/add-on-modules/?utm_source=chatgpt.com "Add-On Modules - Autopsy"
-[6]: https://wiki.sleuthkit.org/index.php?title=Autopsy_3rd_Party_Modules&utm_source=chatgpt.com "Autopsy 3rd Party Modules - SleuthKitWiki"
-[7]: https://www.bluevoyant.com/knowledge-center/get-started-with-these-9-open-source-tools?utm_source=chatgpt.com "Digital Forensics: Get Started with These 9 Open Source Tools"
-[8]: https://github.com/sleuthkit/autopsy_addon_modules?utm_source=chatgpt.com "sleuthkit/autopsy_addon_modules: Repo to store compiled modules ..."
-[9]: https://sleuthkit.org/autopsy/docs/api-docs/4.0/mod_dev_py_page.html?utm_source=chatgpt.com "Autopsy: Python Development Setup - The Sleuth Kit"
-[10]: https://sleuthkit.org/autopsy/docs/api-docs/4.17.0/mod_python_file_ingest_tutorial_page.html?utm_source=chatgpt.com "Autopsy: Python Tutorial #1: Writing a File Ingest Module"
-[11]: https://github.com/labcif/PerfAutopsy?utm_source=chatgpt.com "labcif/PerfAutopsy: Performance of Autopsy Software - GitHub"
 
 ## Best Practices  
 
@@ -764,13 +697,6 @@ Autopsy's ingest modules analyze data in a prioritized manner, typically focusin
 ---
 
 By adhering to these tips and being mindful of common pitfalls, investigators can enhance the efficiency and reliability of their analyses using Autopsy.
-
-[1]: https://sleuthkit.org/autopsy/docs/user-docs/4.15.0/quick_start_guide.html?utm_source=chatgpt.com "Autopsy User Documentation: Quick Start Guide - The Sleuth Kit"
-[2]: https://cisweb.bristolcc.edu/~ik/t155t/Autopsy_03_cases_and_data/Autopsy_03_cases_and_data.html?utm_source=chatgpt.com "Autopsy Organizing Data Into a Case - Computer Information Systems"
-[3]: https://sleuthkit.org/autopsy/docs/user-docs/3.1/quick_start_guide.html?utm_source=chatgpt.com "Autopsy User Documentation: Quick Start Guide - The Sleuth Kit"
-[4]: https://www.forensicsciencesimplified.org/digital/how.html?utm_source=chatgpt.com "Digital Evidence: How It's Done - Forensic Science Simplified"
-[5]: https://www.sentinelone.com/cybersecurity-101/cybersecurity/digital-forensics/?utm_source=chatgpt.com "Digital Forensics: Definition and Best Practices - SentinelOne"
-
 
 ## Conclusion  
 
@@ -834,10 +760,4 @@ Autopsy is an open-source digital forensics platform that provides a user-friend
 
 * **Support Page**: Information on obtaining help from the community or seeking commercial support from Sleuth Kit Labs. ([Sleuth Kit][5])
 
-
-[1]: https://github.com/sleuthkit/autopsy?utm_source=chatgpt.com "sleuthkit/autopsy - GitHub"
-[2]: https://www.sleuthkit.org/autopsy/features.php?utm_source=chatgpt.com "Autopsy: Features - The Sleuth Kit"
-[3]: https://sleuthkit.org/autopsy/docs/user-docs/4.22.0/?utm_source=chatgpt.com "Autopsy User Documentation - The Sleuth Kit"
-[4]: https://sleuthkit.discourse.group/?utm_source=chatgpt.com "Autopsy and The Sleuth Kit"
-[5]: https://www.sleuthkit.org/support.php?utm_source=chatgpt.com "Support - www.sleuthkit.org"
 

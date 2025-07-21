@@ -508,7 +508,7 @@ EnCase is known for its **broad compatibility with digital evidence types**. Whe
 
    * Through enterprise add-ons, EnCase can also access cloud-stored data (e.g., O365, SharePoint)
 
-📌 **Bonus**: EnCase supports **compound file types** like PST, ZIP, RAR, and can recursively parse these to extract nested contents for full visibility.
+ **Bonus**: EnCase supports **compound file types** like PST, ZIP, RAR, and can recursively parse these to extract nested contents for full visibility.
 
 ---
 
@@ -547,7 +547,7 @@ Once the device is connected, you use EnCase to create a **forensic image**, typ
 4. Enable hashing (MD5, SHA1, SHA256 – depending on policy)
 5. Optionally add **case notes or metadata** to embed in the image
 
-📌 **E01 and Ex01 formats** allow compression, encryption, and metadata embedding (examiner name, time, acquisition notes).
+**E01 and Ex01 formats** allow compression, encryption, and metadata embedding (examiner name, time, acquisition notes).
 
 ---
 
@@ -566,7 +566,7 @@ Hashing is **non-negotiable** in forensic workflows. EnCase automates this step 
   * **SHA-1** – Better than MD5 but slowly being deprecated
   * **SHA-256** – Stronger and increasingly required by policy
 
-📌 Hash values are **logged in the Case Log** and appear in generated reports—ensuring **forensic soundness and admissibility in court**.
+Hash values are **logged in the Case Log** and appear in generated reports—ensuring **forensic soundness and admissibility in court**.
 
 ---
 
