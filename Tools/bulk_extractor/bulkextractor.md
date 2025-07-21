@@ -96,15 +96,3 @@
   Used in case studies (e.g. NPS, FBI triage), part of BitCurator, referenced in OSINT tutorials, Stanford webinars ([Simson][7])
 
 
-Everything here is fully sourced from official manuals, academic publications, and community documentation to ensure accuracy and reliability. Let me know if you want me to flesh out individual modules or write slides/scripts based on this!
-
-[1]: https://forensics.wiki/bulk_extractor/?utm_source=chatgpt.com "Bulk extractor - - Forensics Wiki"
-[2]: https://digitalcorpora.s3.amazonaws.com/downloads/bulk_extractor/BEUsersManual.pdf?utm_source=chatgpt.com "[PDF] bulk extractor 1.4 USER MANUAL"
-[3]: https://simson.net/clips/academic/2013.COSE.bulk_extractor.pdf?utm_source=chatgpt.com "[PDF] Digital media triage with bulk data analysis and bulk_extractor"
-[4]: https://digitalcorpora.s3.amazonaws.com/downloads/bulk_extractor/BEProgrammersManual.pdf?utm_source=chatgpt.com "[PDF] Programmers Manual for Developing Bulk Extractor Scanner Plug-ins"
-[5]: https://www.kali.org/tools/bulk-extractor/?utm_source=chatgpt.com "bulk-extractor | Kali Linux Tools"
-[6]: https://www.youtube.com/watch?v=5MTzP7THNKQ&utm_source=chatgpt.com "Extract Sensitive Information from Drives Using Bulk Extractor"
-[7]: https://simson.net/ref/2012/2012-08-08%20bulk_extractor%20Tutorial.pdf?utm_source=chatgpt.com "[PDF] Using bulk_extractor for digital forensics triage and cross-drive ..."
-[8]: https://malware.news/t/using-bulk-extractor-for-quick-osint-wins/34592?utm_source=chatgpt.com "Using Bulk Extractor for Quick OSINT Wins - Malware News"
-[9]: https://www.slideserve.com/ebetty/bulk-extractor-advanced-topics-webinar-bitcurator-consortium-powerpoint-ppt-presentation?utm_source=chatgpt.com "Bulk Extractor Advanced Topics Webinar - Stanford University"
-[10]: https://arxiv.org/pdf/2208.01639?utm_source=chatgpt.com "[PDF] Sharpening Your Tools: Updating bulk_extractor for the 2020s. - arXiv"
