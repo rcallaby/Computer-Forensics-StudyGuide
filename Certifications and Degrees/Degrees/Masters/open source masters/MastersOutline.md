@@ -1,175 +1,91 @@
 # Open Source Masters Degree Program 
 
-The following is a course outline of various masters degree programs with the intent of making a completely free open source masters degree program.
+Below find a complete curriculum of Boston Universitys Computer Forensics Masters Degree Program. I am using this as an example online course that is my aim to make all of this content completely open soure and free.
 
-## **Core Courses & Sample Syllabi**
+## Degree Structure
 
-### **1. Computer Forensics I – Seizure & Examination**
+* **Total Requirement:** 10 courses (40 graduate units) ([Boston University][1], [Boston University][2])
+* Students complete either:
 
-**Source:** UCF CGS 5131 syllabus ([Course Hero][1])
-**Topics & Skills:**
-
-* Disk imaging: using `dd` and FTK Imager on Windows XP/Vista
-* Analyzing DOS partitions (Helix CD / SleuthKit)
-* FAT12 & NTFS structures via WinHex, Diskedit, grep searches
-* Conducting forensic exams and assembling court-ready written reports
-  **Learning Outcomes:**
-* Work through identification, preservation, examination, and reporting phases
-* Uphold professional/ethical standards in chain of custody
-* Analyze file systems and reconstruct events from metadata
+  * **MS in Computer Science (CS)** with a **Security** concentration
+  * **MS in Computer Information Systems (CIS)** with a **Security** concentration
+* **Prerequisites:** Bachelor’s degree plus background in programming, discrete mathematics, and computer systems; if gaps exist, BU will assign prerequisite courses ([met-cybersec.bu.edu][3], [Boston University][2])
 
 ---
 
-### **2. Computer Forensics II – Linux & Advanced Analysis**
+## Core Requirements
 
-**Source:** UCF CNT 6418 syllabus ([msdf.ucf.edu][2], [Course Hero][3], [msdf.ucf.edu][4])
-**Topics:**
+**MS in Computer Science (5 courses / 20 units)** ([Boston University][2])
 
-* Device imaging and data hiding techniques
-* Linux file systems forensic analysis
-* Open‑source tools: Autopsy, SleuthKit
-* Data carving, password cracking
-* Introduction to memory, email, and network forensics
+* MET CS 566 Analysis of Algorithms
+* MET CS 575 Operating Systems
+* MET CS 662 Computer Language Theory
+* MET CS 673 Software Engineering
+* MET CS 535 Computer Networks *or* MET CS 579 Database Management
 
-**Outcomes:**
+**MS in Computer Information Systems (similar core requirements)** ([Boston University][1], [Boston University][2])
 
-* Build forensic image captures and carve data
-* Navigate Linux environments for forensic investigations
-* Create structured forensic analysis reports
+* Includes core plus MET CS 546 Probability & Statistics (if not covered earlier) ([computersciencehero.com][4])
 
 ---
 
-### **3. Operating Systems & File System Forensics**
+## Electives & Specialization in Forensics
 
-**Source:** UCF CIS 6386 syllabus ([msdf.ucf.edu][5], [online.champlain.edu][6])
-**Focus:**
+Students choose **five electives (20 units)**. Relevant courses include:
 
-* FAT & NTFS file system architectures
-* Examination of Windows and macOS artifacts
-* Handling virtualization and cloud-based artifacts
-* Hands-on labs simulating field cases
-  **Outcome:**
-* Conduct deep forensic examinations on modern OS file systems
+* **MET CS 693 Digital Forensics & Investigations**
+* **MET CS 694 Mobile Forensics & Security**
+* **MET CS 690 Network and Cloud Security**
+* **MET CS 695 Cybersecurity**
+  These four are also the required courses for BU’s Graduate Certificate in Digital Forensics (16 units)—all transferable to the full master’s program ([Boston University][5])
 
----
+Additional electives that support the security/forensics track:
 
-### **4. Electronic Discovery (E‑Discovery)**
-
-**Source:** UCF CIS 6206 syllabus ([msdf.ucf.edu][7], [msdf.ucf.edu][8])
-**Content:**
-
-* Legal rules (FRCP), information governance, legal holds
-* Collection/processing of cloud & mobile data
-* Depositions and cross-border e-discovery issues
-  **Outcome:**
-* Navigate the legal-technical ESI lifecycle for litigation support
+* MET CS 684 Enterprise Cybersecurity Management
+* MET CS 674 Database Security
+* MET CS 689 Designing & Implementing a Data Warehouse
+* MET CS 777 Big Data Analytics
+* MET CS 789 Cryptography
+* MET CS 787 AI and Cybersecurity
+  And others listed in the general electives lists of both CS and CIS programs ([Boston University][2])
 
 ---
 
-### **5. The Practice of Digital Forensics (Capstone)**
+## Elective Examples (Digital Forensics Focus)
 
-**Source:** UCF CIS 6207 syllabus ([msdf.ucf.edu][8], [grad.cecs.ucf.edu][9])
-**Approach:**
+Here’s a sample path focusing on digital forensics and network security:
 
-* Builds from forensic foundations to courtroom readiness
-* Conducts full forensic examination using user-chosen tools
-* Produces professional forensic reports, undergoes peer review
-* Prepares and practices expert witness testimony
-* Covers management: budgets, policies, leadership
-  **Objective:**
-* Demonstrate integrated forensic proficiency across technical, legal, and managerial domains
+| Course Code | Title                               | Units |
+| ----------- | ----------------------------------- | ----- |
+| CS 693      | Digital Forensics & Investigations  | 4     |
+| CS 694      | Mobile Forensics & Security         | 4     |
+| CS 690      | Network & Cloud Security            | 4     |
+| CS 695      | Cybersecurity                       | 4     |
+| CS 684      | Enterprise Cybersecurity Management | 4     |
 
----
-
-### **Champlain College MS in Digital Forensic Science**
-
-**General Structure:** \~36 credits ([online.champlain.edu][6], [msdf.ucf.edu][4])
-
-#### **DFS 500 – Digital Forensic Science**
-
-* Crime scene principles, rules of evidence, file system & storage exploration
-* Tool exposure: FTK Imager, Autopsy, ProDiscover
-  ([Champlain College][10], [online.champlain.edu][6])
-
-#### **DFS 501 – The Practice of Digital Investigation**
-
-* Tools: FTK, Volatility, RegRipper, Network Miner, Wireshark
-* Combined technical, legal, and managerial instruction
-  ([online.champlain.edu][6])
-
-#### **DFS 510 – Scripting for Digital Forensics**
-
-* Python scripting with WingIDE
-* Understanding EnScript, Perl, PowerShell, Shell scripting ([online.champlain.edu][6])
-
-#### **DFS 520 – Operating System Analysis**
-
-* Using SleuthKit, Volatility to probe OS artifacts
-* Covers virtualization, mobile OS, and cloud forensic challenges
-  ([online.champlain.edu][6], [online.champlain.edu][11])
-
-#### **DFS 530 – Incident Response & Network Forensics**
-
-* Tools: nfdump, Snort, Wireshark
-* Captures incident response processes and network analysis workflows
-  ([online.champlain.edu][6])
-
-#### **DFS 550 – Mobile Device Analysis**
-
-* Techniques for extracting and analyzing data from phones, tablets, GPS
-* Tools: Cellebrite, Magnet Axiom, Andriller, DB Browser
-  ([online.champlain.edu][6])
-
-#### **DFS 570 – Legal Principles of Digital Investigation**
-
-* Topics including Cloud Act, GDPR, “Right to Be Forgotten”, privacy vs encryption
-
-
-#### **DFS 580 – Capstone Research Thesis**
-
-* Independent project introducing a new methodology or solution in digital forensics
-  ([online.champlain.edu][6])
-
-#### **Sample Electives (choose 2):**
-
-* **DFS 540 – Malware Analysis**: Static/dynamic malware behavior; use of IDA Pro, OllyDbg, Volatility ([online.champlain.edu][6])
-* **DFS 560 – Digital Forensics & Encryption**: Study encryption protocols, OpenPGP, cracking methods ([online.champlain.edu][6])
-* **DFS 565 – Forensics Lab Management**: Leadership, operations, administrative strategies for forensic labs ([online.champlain.edu][6])
+If pursuing the CIS track, add the required core courses plus electives to round out the full 40 units.
 
 ---
 
-## **Common Tools & Labs**
+## Thesis Option (Optional)
 
-* Imaging & carving: FTK Imager, Autopsy, SleuthKit
-* Memory & malware analysis: Volatility, IDA Pro, OllyDbg
-* Mobile: Cellebrite, Magnet Axiom, Andriller
-* Network: Wireshark, Snort, nfdump
-* Scripting: Python, PowerShell, EnScript, Bash
-  ([online.champlain.edu][6])
+Eligible students (GPA ≥ 3.7 and completion of at least 7 courses) may pursue a thesis option:
+
+* **MET CS 810/811 Master’s Thesis in Computer Science or CIS (8 units)**
+* The thesis replaces two electives, reducing electives needed by \~8 units ([Boston University][6], [Boston University][2], [Boston University][1])
 
 ---
 
-## **Putting It All Together**
+## Path via Graduate Certificate
 
-| Phase                            | Courses & Focus                                   |
-| -------------------------------- | ------------------------------------------------- |
-| **Foundation**                   | Digital Forensic Science & Computer Forensics I   |
-| **Systems Analysis**             | Computer Forensics II & OS/File System Forensics  |
-| **Incident & Legal Integration** | Network Forensics, E‑Discovery, Legal Principles  |
-| **Mobile & Malware**             | Mobile Device Analysis, Malware Analysis          |
-| **Scripting & Tools**            | Scripting for Automation                          |
-| **Capstone**                     | Practice of Forensics (UCF) or Thesis (Champlain) |
+If you begin with the **Digital Forensics Graduate Certificate**, you'll complete:
 
-These reflect rigorous, real-world programs from UCF and Champlain College, ensuring academic depth and industry readiness—all backed with source documentation. Let me know if you’d like recommendations for other universities or guidance on course alignment with career goals!
+* CS 625 Business Data Communications & Networks
+* CS 693 Digital Forensics & Investigations
+* CS 694 Mobile Forensics & Security
+* One of CS 690 or CS 695
+  Total: 16 units ([Boston University][7], [Boston University][5], [Reddit][8])
 
-[1]: https://www.coursehero.com/file/168936477/CNT6519SyllabusFall2022pdf/?utm_source=chatgpt.com "Advanced Wireless Security and Forensics Course Overview"
-[2]: https://msdf.ucf.edu/syllabus/CGS5131_CS_Fall2021_GRAD.pdf?utm_source=chatgpt.com "[PDF] CGS 5131 0R01/0V61/0084 – Digital Forensics I: Seizure and ..."
-[3]: https://www.coursehero.com/file/70128678/COP-5131-Digital-Forensics-I-Syllabuspdf/?utm_source=chatgpt.com "COP 5131 Digital Forensics I - Syllabus.pdf - Department of..."
-[4]: https://msdf.ucf.edu/syllabus/CIS6207_CS_Spring2023_GRAD.pdf?utm_source=chatgpt.com "[PDF] The Practice of Digital Forensics (CIS 6207) Spring 2023 Syllabus"
-[5]: https://msdf.ucf.edu/syllabus/CNT6418_CS_Spring2022_GRAD.pdf?utm_source=chatgpt.com "[PDF] CNT 6418 0R01/0V61 – Computer Forensics II Spring 2022"
-[6]: https://online.champlain.edu/degrees-certificates/masters-digital-forensic-science?utm_source=chatgpt.com "Digital Forensic Science Online Master's Degree Program"
-[7]: https://msdf.ucf.edu/syllabus/CIS6386_CS_Spring2023_GRAD.pdf?utm_source=chatgpt.com "[PDF] Operating System and File System Forensics (CIS 6386) Spring ..."
-[8]: https://msdf.ucf.edu/syllabus/CIS6206_CS_Fall2022_GRAD.pdf?utm_source=chatgpt.com "[PDF] CIS6206_CS_Fall2022_GRAD.pdf - Digital Forensics - UCF"
-[9]: https://grad.cecs.ucf.edu/wp-content/uploads/2022/03/CECS-VGD-MSDF.pdf?utm_source=chatgpt.com "[PDF] Digital Forensics MS - UCF"
-[10]: https://classlist.champlain.edu/course/description/number/dfs_500/register/false?utm_source=chatgpt.com "Digital Forensic Science"
-[11]: https://online.champlain.edu/degrees-certificates/graduate-certificate-digital-forensic-science?utm_source=chatgpt.com "Digital Forensic Science Online Graduate Certificate Program"
+After finishing the certificate (with B grade or above), you can transition into the full **MS in CIS** or **MS in CS** and just complete the remaining electives and any core not yet taken, without re-applying ([Boston University][5], [Boston University][9])
+
+
