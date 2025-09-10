@@ -80,6 +80,6 @@
 
 
 
-[1]: https://hirevire.com/pre-screening-interview-questions/digital-forensics-investigator?utm_source=chatgpt.com "Pre-screening interview questions to ask for Digital Forensics Investigator | Hirevire}"
-[2]: https://www.vintti.com/interview-questions/digital-forensics-analyst-1?utm_source=chatgpt.com "Interview Questions for Remote Digital Forensics Analyst - Hiring Guide"
-[3]: https://www.vintti.com/interview-questions/digital-forensics-analyst?utm_source=chatgpt.com "Interview Questions for Remote Digital Forensics Analyst - Hiring Guide"
+[1]: https://hirevire.com/pre-screening-interview-questions/digital-forensics-investigator "Pre-screening interview questions to ask for Digital Forensics Investigator | Hirevire}"
+[2]: https://www.vintti.com/interview-questions/digital-forensics-analyst-1 "Interview Questions for Remote Digital Forensics Analyst - Hiring Guide"
+[3]: https://www.vintti.com/interview-questions/digital-forensics-analyst "Interview Questions for Remote Digital Forensics Analyst - Hiring Guide"
